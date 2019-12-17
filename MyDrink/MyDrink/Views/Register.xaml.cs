@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using MyDrink.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +15,7 @@ namespace MyDrink.Views
         public Register()
         {
             InitializeComponent();
+            BindingContext = new RegisterViewModel();
         }
     }
 }

@@ -14,5 +14,10 @@ namespace MyDrink.Models
         public StateLogin()
         {
         }
+        public StateLogin(string username, string pass)
+        {
+            this.userName = username;
+            this.password = pass;
+        }
     }
 }

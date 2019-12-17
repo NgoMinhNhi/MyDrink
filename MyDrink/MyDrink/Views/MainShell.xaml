@@ -26,7 +26,6 @@
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent  Title="Home" ContentTemplate="{DataTemplate pages:HomePage}"/>
-        <ShellContent Title="Menu" ContentTemplate="{DataTemplate pages:MenuPage}"/>
         <ShellContent Title="Favorites" ContentTemplate="{DataTemplate pages:Favorites}"/>
         <ShellContent  Title="Profile" ContentTemplate="{DataTemplate pages:Profiles}"/>
         <ShellContent Title="Help" ContentTemplate="{DataTemplate pages:Help}"/>

@@ -15,5 +15,7 @@ namespace MyDrink.Models
         public string phoneNunber { get; set; }
         public string address { get; set;  }
         public string email { get; set; }
+        public string status { get; set; }
+        public bool success { get; set; }
     }
 }

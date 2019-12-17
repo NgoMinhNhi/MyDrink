@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 using MyDrink.ViewModels;
 using MyDrink.Helpers;
 using MyDrink.Models;
+using System.Net.Http;
 
 namespace MyDrink.Views
 {
@@ -30,5 +31,6 @@ namespace MyDrink.Views
                 this.Navigation.PushModalAsync(new Welcome());
             }
         }
+       
     }
 }

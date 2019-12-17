@@ -7,26 +7,19 @@
              BackgroundColor="#f3f3f3"
              Title="Home"
              x:Class="MyDrink.Views.HomePage">
-    <!--<ContentPage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="buttonStyle" TargetType="Button">
-                --><!--<Setter Property="TextColor" Value="Red" />--><!--
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>-->
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="iconSetting" Icon="notify.png" Priority="0" Order="Primary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView >
-            <FlexLayout Wrap="Wrap" JustifyContent="Center">
+            <StackLayout>
+            <FlexLayout Wrap="Wrap" JustifyContent="Center" Margin="0,0,0,30">
                 <StackLayout FlexLayout.Basis="180" HeightRequest="250" Margin="10"  BackgroundColor="#ffffff"  >
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OpenOtherPageCommand}" />
                     </StackLayout.GestureRecognizers>
-                    <Label Text="Mocca Cookie" FontSize="16" TextColor="#828282" Margin="10,10,0,0" />
-                    <Label Text="Locally Roasted" FontSize="12" TextColor="#919191" Margin="10,0,0,0" />
-                    <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
+                        <Label Text="Mocca Cookie" FontSize="16" TextColor="#828282" Margin="10,10,0,0" />
+                        <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
                     <FlexLayout JustifyContent="SpaceBetween" Margin="10,10,10,0">
                         <Label Text="$12.75" TextColor="#0d9f67"  />
                         <Image Source="heartIcon.png" WidthRequest="20" />
@@ -36,9 +29,8 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OpenOtherPageCommand}" />
                     </StackLayout.GestureRecognizers>
-                    <Label Text="Mocca Cookie" FontSize="16" TextColor="#828282" Margin="10,10,0,0" />
-                    <Label Text="Locally Roasted" FontSize="12" TextColor="#919191" Margin="10,0,0,0" />
-                    <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
+                        <Label Text="Mocca Cookie" FontSize="16" TextColor="#828282" Margin="10,10,0,0" />
+                        <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
                     <FlexLayout JustifyContent="SpaceBetween" Margin="10,10,10,0">
                         <Label Text="$12.75" TextColor="#0d9f67"  />
                         <Image Source="heartIcon.png" WidthRequest="20" />
@@ -48,9 +40,8 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OpenOtherPageCommand}" />
                     </StackLayout.GestureRecognizers>
-                    <Label Text="Mocca Cookie" FontSize="16" TextColor="#828282" Margin="10,10,0,0" />
-                    <Label Text="Locally Roasted" FontSize="12" TextColor="#919191" Margin="10,0,0,0" />
-                    <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
+                        <Label Text="Mocca Cookie" FontSize="16" TextColor="#828282" Margin="10,10,0,0" />
+                        <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
                     <FlexLayout JustifyContent="SpaceBetween" Margin="10,10,10,0">
                         <Label Text="$12.75" TextColor="#0d9f67"  />
                         <Image Source="heartIcon.png" WidthRequest="20" />
@@ -60,9 +51,8 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OpenOtherPageCommand}" />
                     </StackLayout.GestureRecognizers>
-                    <Label Text="Mocca Cookie" FontSize="16" TextColor="#828282" Margin="10,10,0,0" />
-                    <Label Text="Locally Roasted" FontSize="12" TextColor="#919191" Margin="10,0,0,0" />
-                    <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
+                        <Label Text="Mocca Cookie" FontSize="16" TextColor="#828282" Margin="10,10,0,0" />
+                        <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
                     <FlexLayout JustifyContent="SpaceBetween" Margin="10,10,10,0">
                         <Label Text="$12.75" TextColor="#0d9f67"  />
                         <Image Source="heartIcon.png" WidthRequest="20" />
@@ -72,9 +62,8 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OpenOtherPageCommand}" />
                     </StackLayout.GestureRecognizers>
-                    <Label Text="Mocca Cookie" FontSize="16" TextColor="#828282" Margin="10,10,0,0" />
-                    <Label Text="Locally Roasted" FontSize="12" TextColor="#919191" Margin="10,0,0,0" />
-                    <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
+                        <Label Text="Mocca Cookie" FontSize="16" TextColor="#828282" Margin="10,10,0,0" />
+                        <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
                     <FlexLayout JustifyContent="SpaceBetween" Margin="10,10,10,0">
                         <Label Text="$12.75" TextColor="#0d9f67"  />
                         <Image Source="heartIcon.png" WidthRequest="20" />
@@ -84,9 +73,8 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OpenOtherPageCommand}" />
                     </StackLayout.GestureRecognizers>
-                    <Label Text="Mocca Cookie" FontSize="16" TextColor="#828282" Margin="10,10,0,0" />
-                    <Label Text="Locally Roasted" FontSize="12" TextColor="#919191" Margin="10,0,0,0" />
-                    <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
+                        <Label Text="Mocca Cookie" FontSize="16" TextColor="#828282" Margin="10,10,0,0" />
+                        <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
                     <FlexLayout JustifyContent="SpaceBetween" Margin="10,10,10,0">
                         <Label Text="$12.75" TextColor="#0d9f67"  />
                         <Image Source="heartIcon.png" WidthRequest="20" />
@@ -96,15 +84,27 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding OpenOtherPageCommand}" />
                     </StackLayout.GestureRecognizers>
-                    <Label Text="Mocca Cookie" FontSize="16" TextColor="#828282" Margin="10,10,0,0" />
-                    <Label Text="Locally Roasted" FontSize="12" TextColor="#919191" Margin="10,0,0,0" />
-                    <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
+                        <Label Text="Mocca Cookie" FontSize="16" TextColor="#828282" Margin="10,10,0,0" />
+                        <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
+                        <FlexLayout JustifyContent="SpaceBetween" Margin="10,10,10,0">
+                            <Label Text="$12.75" TextColor="#0d9f67"  />
+                            <Image Source="heartIcon.png" WidthRequest="20" />
+                        </FlexLayout>
+                </StackLayout>
+                <StackLayout FlexLayout.Basis="180" HeightRequest="250" Margin="10"  BackgroundColor="#ffffff"  >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding OpenOtherPageCommand}" />
+                    </StackLayout.GestureRecognizers>
+                        <Label Text="Mocca Cookie" FontSize="16" TextColor="#828282" Margin="10,10,0,0" />
+                        <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
                     <FlexLayout JustifyContent="SpaceBetween" Margin="10,10,10,0">
                         <Label Text="$12.75" TextColor="#0d9f67"  />
                         <Image Source="heartIcon.png" WidthRequest="20" />
                     </FlexLayout>
                 </StackLayout>
-            </FlexLayout>
+                </FlexLayout>
+                <Button WidthRequest="150" BackgroundColor="#0d9f67" Text="Add Product" Command="{Binding CreateProductCommand}" />
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

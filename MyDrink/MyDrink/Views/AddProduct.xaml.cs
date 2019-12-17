@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace MyDrink.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MenuPage : ContentPage
+    public partial class AddProduct : ContentPage
     {
-        public MenuPage()
+        public AddProduct()
         {
             InitializeComponent();
         }

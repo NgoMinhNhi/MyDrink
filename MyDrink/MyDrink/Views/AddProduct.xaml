@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Add Product"
+             x:Class="MyDrink.Views.AddProduct">
+    <ContentPage.Resources>
+        <Style x:Key="styleLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="Margin" Value="0,20,0,0"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="iconSetting" Icon="done.png" Priority="0" Order="Primary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="20,0,20,0">
+                <Image Source="coffee.png" WidthRequest="120" Margin="0,80,0,0" />
+                <StackLayout Margin="100,15,100,0">
+                    <Button Text="Add Image" BackgroundColor="#0d9f67" />
+                </StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="FILL INFO PRODUCT" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20"/>
+                    <Label Text="Name" Grid.Row="1" Grid.Column="0" Style="{StaticResource styleLabel}"/>
+                    <Entry Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="End" Text="" />
+                    <Label Text="Price" Grid.Row="2" Grid.Column="0" Style="{StaticResource styleLabel}"/>
+                    <Entry Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="End" Text="" />
+                    <Label Text="Detail" Grid.Row="3" Grid.Column="0" Style="{StaticResource styleLabel}"/>
+                    <Editor Placeholder="Fill detail product" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

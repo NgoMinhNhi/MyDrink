@@ -18,9 +18,5 @@ namespace MyDrink.Views
             InitializeComponent();
             BindingContext = new LoginViewModel();
         }
-        private void Nav_To_Login(object sender, EventArgs e)
-        {
-            this.Navigation.PushModalAsync(new MainShell());
-        }
     }
 }

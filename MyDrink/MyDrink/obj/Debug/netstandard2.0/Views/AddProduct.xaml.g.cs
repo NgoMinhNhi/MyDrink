@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("MyDrink.Views.MenuPage.xaml", "Views/MenuPage.xaml", typeof(global::MyDrink.Views.MenuPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("MyDrink.Views.AddProduct.xaml", "Views/AddProduct.xaml", typeof(global::MyDrink.Views.AddProduct))]
 
 namespace MyDrink.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\MenuPage.xaml")]
-    public partial class MenuPage : global::Xamarin.Forms.ContentPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\AddProduct.xaml")]
+    public partial class AddProduct : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MenuPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(AddProduct));
         }
     }
 }
