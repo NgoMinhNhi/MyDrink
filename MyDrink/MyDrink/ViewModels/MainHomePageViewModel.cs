@@ -12,12 +12,14 @@ namespace MyDrink.ViewModels
     {
         public Command<string> FillByStatusCommand { get; }
         public Command<string> FillByTypeCommand { get; }
+        public Command OpenShoppingCartCommand { get; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public MainHomePageViewModel()
         {
             FillByStatusCommand = new Command<string>(async (value) => await FillByStatus(value));
             FillByTypeCommand = new Command<string>(async (value) => await FillByType(value));
+            OpenShoppingCartCommand = new Command(async () => await OpenShoppingCart());
         }
         public async Task FillByStatus(string status)
         {
@@ -26,6 +28,10 @@ namespace MyDrink.ViewModels
         public async Task FillByType(string type)
         {
             await Application.Current.MainPage.Navigation.PushAsync(new HomePage("type", type));
+        }
+        public async Task OpenShoppingCart()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new ShoppingCart());
         }
     }
 }

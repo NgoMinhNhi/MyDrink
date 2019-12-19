@@ -9,7 +9,7 @@
              x:Name="PageName"
              x:Class="MyDrink.Views.HomePage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="iconSetting" Icon="shoppingCart.png" Priority="0" Order="Primary"/>
+        <ToolbarItem Name="iconSetting" Icon="shoppingCart.png" Command="{Binding OpenShoppingCartCommand}" Priority="0" Order="Primary"/>
         <ToolbarItem Name="iconSetting" Icon="notify.png" Priority="0" Order="Primary"/>
         
     </ContentPage.ToolbarItems>
@@ -17,7 +17,7 @@
         <ScrollView >
             <StackLayout>
                 <Button WidthRequest="150" BackgroundColor="#0d9f67" IsVisible="{Binding IsAdmin}" Text="Add Product" Command="{Binding CreateProductCommand}" />
-
+                <ActivityIndicator Color="#2161A1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}" />
                 <ListView SeparatorVisibility="None" HasUnevenRows="True" ItemsSource="{Binding listDrinks}"
                             >
                     <ListView.ItemTemplate>
@@ -40,8 +40,7 @@
                                             <Image Source="heartIcon.png" WidthRequest="20" />
                                         </FlexLayout>
                                     </StackLayout>
-                                    <StackLayout>
-                                         <StackLayout Grid.Column="1"  BindingContext="{Binding Item2}" Margin="5,5,10,5"  BackgroundColor="#ffffff"  >
+                                    <StackLayout Grid.Column="1"  BindingContext="{Binding Item2}" Margin="5,5,10,5"  BackgroundColor="#ffffff"  >
                                         <StackLayout.GestureRecognizers>
                                             <TapGestureRecognizer Command="{Binding Path=BindingContext.DetailDrinkCommand, Source={x:Reference PageName}}" CommandParameter="{Binding .}" />
                                         </StackLayout.GestureRecognizers>
@@ -53,14 +52,13 @@
                                             <Image Source="heartIcon.png" WidthRequest="20" />
                                         </FlexLayout>
                                     </StackLayout>
-                                    </StackLayout>
-                                   
+
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-
+    
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

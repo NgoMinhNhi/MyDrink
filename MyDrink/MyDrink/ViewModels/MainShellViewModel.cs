@@ -31,7 +31,9 @@ namespace MyDrink.ViewModels
                 if(db.DeleteStateLogin())
                 {
                     Application.Current.MainPage.DisplayAlert("Alert", "Logout Success", "ok");
-                    Thread.Sleep(1000);
+                    DatabaseOrder db = new DatabaseOrder();
+                    db.DeleteTableOrder();
+                    Thread.Sleep(500);
                     Application.Current.MainPage = new Welcome();
                 } else
                 {

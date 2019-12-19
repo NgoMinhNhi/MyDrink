@@ -19,11 +19,11 @@
                     <Label FontSize="18" Text="Base Price" />
                     <Label FontSize="18" Text="{Binding detaikDrink.price, StringFormat='${0}'}" />
                 </FlexLayout>
-                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#e2e2e2" Margin="30,0,30,0"/>
-                <FlexLayout Margin="20,10,20,10" JustifyContent="SpaceBetween">
+                <!--<BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#e2e2e2" Margin="30,0,30,0"/>-->
+                <!--<FlexLayout Margin="20,10,20,10" JustifyContent="SpaceBetween">
                     <Label FontSize="18" Text="Size" />
                     <Picker ItemsSource="{Binding listSizeDrink}" HorizontalOptions="Center" ItemDisplayBinding="{Binding Value}" SelectedIndex="{Binding SelectedSizeIndex}" WidthRequest="100" />
-                </FlexLayout>
+                </FlexLayout>-->
                 <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#e2e2e2" Margin="30,0,30,0"/>
                 <FlexLayout Margin="20,10,20,10" JustifyContent="SpaceBetween">
                     <Label FontSize="18" Text="Quantity" />
@@ -31,9 +31,10 @@
                 </FlexLayout>
                 <StackLayout Margin="20,30,0,0">
                     <Label Text="Note" FontSize="20" />
-                    <Entry Text="" />
+                    <Entry Text="{Binding detail}" />
                 </StackLayout>
-                <Button Text="Add to cart" BackgroundColor="#0d9f67" />
+                <ActivityIndicator Color="#2161A1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}" />
+                <Button Text="Add to cart" BackgroundColor="#0d9f67" Command="{Binding AddToCartCommand}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

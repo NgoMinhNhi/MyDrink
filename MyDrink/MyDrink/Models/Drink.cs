@@ -14,6 +14,13 @@ namespace MyDrink.Models
         public string detail { get; set; }
         public int totalLikes { get; set; }
         public string status { get; set; }
+        public Drink (string id, string n, float p, string dt)
+        {
+            this._id = id;
+            this.name = n;
+            this.price = p;
+            this.detail = dt;
+        }
 
     }
 }

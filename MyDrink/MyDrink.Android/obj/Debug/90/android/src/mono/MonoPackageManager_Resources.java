@@ -4,6 +4,10 @@ public class MonoPackageManager_Resources {
 		/* We need to ensure that "MyDrink.Android.dll" comes first in this list. */
 		"MyDrink.Android.dll",
 		"Behaviors.dll",
+		"FFImageLoading.dll",
+		"FFImageLoading.Forms.dll",
+		"FFImageLoading.Forms.Platform.dll",
+		"FFImageLoading.Platform.dll",
 		"FormsViewGroup.dll",
 		"MyDrink.dll",
 		"Newtonsoft.Json.Bson.dll",

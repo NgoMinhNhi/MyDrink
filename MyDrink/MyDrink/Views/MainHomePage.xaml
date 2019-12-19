@@ -8,7 +8,7 @@
              Title="Home"
              x:Class="MyDrink.Views.MainHomePage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="iconSetting" Icon="shoppingCart.png" Priority="0" Order="Primary"/>
+        <ToolbarItem Name="iconSetting" Icon="shoppingCart.png" Command="{Binding OpenShoppingCartCommand}" Priority="0" Order="Primary"/>
         <ToolbarItem Name="iconSetting" Icon="notify.png" Priority="0" Order="Primary"/>
 
     </ContentPage.ToolbarItems>

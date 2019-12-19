@@ -34,7 +34,4 @@
     <MenuItem Text="Logout"
               IconImageSource="Done.png"
               Command="{Binding LogoutCommand}" />
-    <MenuItem Text="CheckInfo"
-              IconImageSource="Done.png"
-              Command="{Binding CheckInfoCommand}" />
 </Shell>

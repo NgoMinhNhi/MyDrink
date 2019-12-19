@@ -37,9 +37,20 @@ namespace MyDrink.ViewModels
         }
         public event PropertyChangedEventHandler PropertyChanged;
         Database db = new Database();
+        public bool isBusy { get; set; }
         public LoginViewModel()
         {
+            this.isBusy = false;
             LoginCommand = new Command(async () => await Login());
+        }
+        public bool IsBusy
+        {
+            get { return isBusy; }
+            set
+            {
+                isBusy = value;
+                OnPropertyChanged();
+            }
         }
         async Task Login ()
         {
@@ -69,6 +80,7 @@ namespace MyDrink.ViewModels
         {
             User user = null;
             //Data data = null;
+            this.isBusy = true;
             var client = new HttpClient();
             HttpResponseMessage response = await client.PostAsJsonAsync("https://mydrink-api.herokuapp.com/api/user/login", login);
             if (response.IsSuccessStatusCode)
@@ -77,6 +89,7 @@ namespace MyDrink.ViewModels
                 db.createDatabase();
                 if (db.InsertStateLogin(SaveLogin(user._id, user.isAdmin)))
                 {
+                    this.isBusy = false;
                     Application.Current.MainPage.DisplayAlert("Alert", "Login Success", "ok");
                     Application.Current.MainPage = new MainShell();
                 } else

@@ -23,9 +23,10 @@ C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\obj\Debug\netstandard2.
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\obj\Debug\netstandard2.0\Views\EditProfile.xaml.g.cs
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\obj\Debug\netstandard2.0\Views\AddProduct.xaml.g.cs
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\obj\Debug\netstandard2.0\RefitStubs.g.cs
-C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\bin\Debug\netstandard2.0\Mono.Android.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\bin\Debug\netstandard2.0\Mono.Android.pdb
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\bin\Debug\netstandard2.0\Mono.Android.xml
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\obj\Debug\netstandard2.0\MyDrink.csproj.CopyComplete
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\obj\Debug\netstandard2.0\Views\MainHomePage.xaml.g.cs
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\obj\Debug\netstandard2.0\Views\ShoppingCart.xaml.g.cs
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\obj\Debug\netstandard2.0\XamlC.stamp

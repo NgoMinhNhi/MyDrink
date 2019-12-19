@@ -19,16 +19,19 @@ namespace MyDrink.ViewModels
         string phoneNumber;
         string password;
         string confirmPassword;
+        string address;
         public class FormRegister
         {
             public string userName { get; set; }
             public string phoneNumber { get; set; }
             public string password { get; set; }
-            public FormRegister(string username, string phonenumber, string pass)
+            public string address { get; set; }
+            public FormRegister(string username, string phonenumber, string pass, string address)
             {
                 this.userName = username;
                 this.password = pass;
                 this.phoneNumber = phonenumber;
+                this.address = address;
             }
         }
         public RegisterViewModel ()
@@ -37,11 +40,13 @@ namespace MyDrink.ViewModels
         }
         async Task SignUp()
         {
-            if (userName.Length != 0 && phoneNumber.Length != 0 && password.Length !=0 && confirmPassword.Length != 0)
+            if (userName.Length != 0 && phoneNumber.Length != 0 && password.Length !=0 && confirmPassword.Length != 0 && address.Length !=0)
             {
                 if (string.Compare(password, confirmPassword) == 0)
                 {
-                    GetLoginAsync(new FormRegister(userName, phoneNumber, password));
+
+                    //GetLoginAsync(new FormRegister(userName, phoneNumber, password, address));
+                    CheckExistPhoneNumber(phoneNumber);
                 } else
                 {
                     Application.Current.MainPage.DisplayAlert("Alert", "Confirm password not match", "ok");
@@ -76,7 +81,29 @@ namespace MyDrink.ViewModels
             }
             else
             {
-                Application.Current.MainPage.DisplayAlert("Alert", "Login Fail" + response.IsSuccessStatusCode, "ok");
+                Application.Current.MainPage.DisplayAlert("Alert", "Register Fail" + response.IsSuccessStatusCode, "ok");
+            }
+        }
+        async Task CheckExistPhoneNumber(string phone)
+        {
+            User user = null;
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync("https://mydrink-api.herokuapp.com/api/user/get-user-by-phone/"+phone);
+            if (response.IsSuccessStatusCode)
+            {
+                user = await response.Content.ReadAsAsync<User>();
+                if( user == null)
+                {
+                    GetLoginAsync(new FormRegister(userName, phoneNumber, password, address));
+                } else
+                {
+                    Application.Current.MainPage.DisplayAlert("Alert", "Phone number has been registered", "ok");
+                }
+
+            }
+            else
+            {
+                Application.Current.MainPage.DisplayAlert("Alert", "Login Fail", "ok");
             }
         }
         void OnPropertyChanged([CallerMemberName] string name = "")
@@ -119,7 +146,15 @@ namespace MyDrink.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        public string Address
+        {
+            get { return address; }
+            set
+            {
+                address = value;
+                OnPropertyChanged();
+            }
+        }
         public Command CommandSignUp { get; }
     }
 }

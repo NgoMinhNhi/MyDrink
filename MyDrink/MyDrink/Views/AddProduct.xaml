@@ -48,7 +48,9 @@
                     <Label Text="Detail" Grid.Row="5" Grid.Column="0" Style="{StaticResource styleLabel}"/>
                     <Editor Placeholder="Fill detail product" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Detail}" />
                 </Grid>
+                <ActivityIndicator Color="#2161A1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}" />
             </StackLayout>
+            
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

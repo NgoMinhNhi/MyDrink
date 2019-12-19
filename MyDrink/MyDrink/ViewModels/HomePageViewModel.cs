@@ -31,21 +31,27 @@ namespace MyDrink.ViewModels
         public Drink _selectedDrinnk { get; set; }
         public Command DetailDrinkCommand { get; }
         public Command CreateProductCommand { get; }
+        public Command OpenShoppingCartCommand { get; }
         public string titlePage { get; set; }
         public HomePageViewModel()
         {
             this.titlePage = "All Product";
+            this.isBusy = true;
             GetAllDrinksAsync("https://mydrink-api.herokuapp.com/api/drink/get-all-product");
-            DetailDrinkCommand = new Command<Drink>(async (drink) => await OpenOtherPage(drink));
+            DetailDrinkCommand = new Command<Drink>(async (drink) => await OpenDetailDrink(drink));
             CreateProductCommand = new Command(async () => await CreateProduct());
+            OpenShoppingCartCommand = new Command(async () => await OpenShoppingCart());
+            
         }
         public HomePageViewModel(string fill, string value)
         {
             this.titlePage =value;
+            this.isBusy = true;
             GetDrinkFilter("https://mydrink-api.herokuapp.com/api/drink/get-product-by-" + fill + "/" + value);
             
-            DetailDrinkCommand = new Command<Drink>(async (drink) => await OpenOtherPage(drink));
+            DetailDrinkCommand = new Command<Drink>(async (drink) => await OpenDetailDrink(drink));
             CreateProductCommand = new Command(async () => await CreateProduct());
+            OpenShoppingCartCommand = new Command(async () => await OpenShoppingCart());
         }
         public Drink SelectedDrink
         {
@@ -58,10 +64,20 @@ namespace MyDrink.ViewModels
             }
         }
         public bool isAdmin { get; set; }
+        public bool isBusy { get; set; }
         public bool oddDrink { get; set; }
         void OnPropertyChanged([CallerMemberName] string name = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        public bool IsBusy
+        {
+            get { return isBusy; }
+            set
+            {
+                isBusy = value;
+                OnPropertyChanged();
+            }
         }
         async public void GetAllDrinksAsync(string path)
         {
@@ -70,6 +86,7 @@ namespace MyDrink.ViewModels
             HttpResponseMessage response = await client.GetAsync(path);
             if (response.IsSuccessStatusCode)
             {
+                this.isBusy = false;
                 var resp = await response.Content.ReadAsStringAsync();
 
                 listDrink = JsonConvert.DeserializeObject<ObservableCollection<Drink>>(resp);
@@ -96,6 +113,7 @@ namespace MyDrink.ViewModels
             HttpResponseMessage response = await client.GetAsync(path);
             if (response.IsSuccessStatusCode)
             {
+                this.isBusy = false;
                 var resp = await response.Content.ReadAsStringAsync();
 
                 listDrink = JsonConvert.DeserializeObject<ObservableCollection<Drink>>(resp);
@@ -141,13 +159,17 @@ namespace MyDrink.ViewModels
             }
             
         }
-        public async Task OpenOtherPage(Drink drink)
+        public async Task OpenDetailDrink(Drink drink)
         {
             await Application.Current.MainPage.Navigation.PushAsync(new DetailDrink(drink));
         }
         public async Task CreateProduct()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new AddProduct());
+        }
+        public async Task OpenShoppingCart()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new ShoppingCart());
         }
         public event PropertyChangedEventHandler PropertyChanged;
 

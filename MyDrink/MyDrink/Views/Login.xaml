@@ -37,8 +37,7 @@
                 <Button StyleClass="btnLogin" Command="{Binding LoginCommand}"  Text="Login"  Margin="40, 0, 40, 0"/>
             </StackLayout>
             <Label Text="Sign in with" HorizontalOptions="Center" Grid.Row="2" Grid.ColumnSpan="2" />
-            <Button Text="Facebook" BackgroundColor="#3b5998" Margin="40, 0, 0, 0" Grid.Row="3" Grid.Column="0" TextColor="White" />
-            <Button Text="Email" BackgroundColor="#55acee" Margin="0,0, 40, 0" Grid.Row="3" Grid.Column="1" TextColor="White"/>
+            <ActivityIndicator Color="#2161A1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
