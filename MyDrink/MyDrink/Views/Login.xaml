@@ -32,7 +32,7 @@
                 </StackLayout>
             </StackLayout>
             <StackLayout Grid.Row="1" Padding="0, 0, 0, 100" Grid.ColumnSpan="2" >
-                <local:RoundedEntry Text="{Binding UserName}" Placeholder="Username"  Margin="40, 0, 40, 0" ></local:RoundedEntry>
+                <local:RoundedEntry Text="{Binding PhoneNumber}" Placeholder="Phone Number"  Margin="40, 0, 40, 0" ></local:RoundedEntry>
                 <local:RoundedEntry Text="{Binding Password}"  IsPassword="true" Placeholder="Password" Margin="40, 5, 40, 5"></local:RoundedEntry>
                 <Button StyleClass="btnLogin" Command="{Binding LoginCommand}"  Text="Login"  Margin="40, 0, 40, 0"/>
             </StackLayout>

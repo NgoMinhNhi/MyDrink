@@ -25,7 +25,8 @@
     <FlyoutItem Title="MyTabApp" 
                Shell.TabBarIsVisible="False"
                FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent  Title="Home" ContentTemplate="{DataTemplate pages:HomePage}"/>
+        <ShellContent  Title="Home" ContentTemplate="{DataTemplate pages:MainHomePage}"/>
+        <ShellContent  Title="All product" ContentTemplate="{DataTemplate pages:HomePage}"/>
         <ShellContent Title="Favorites" ContentTemplate="{DataTemplate pages:Favorites}"/>
         <ShellContent  Title="Profile" ContentTemplate="{DataTemplate pages:Profiles}"/>
         <ShellContent Title="Help" ContentTemplate="{DataTemplate pages:Help}"/>

@@ -29,6 +29,7 @@
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
                         <RowDefinition Height="100"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -42,8 +43,10 @@
                     <Entry Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="End" Text="{Binding Price}" />
                     <Label Text="Status" Grid.Row="3" Grid.Column="0" Style="{StaticResource styleLabel}"/>
                     <Picker Grid.Row="3" Grid.Column="1" ItemsSource="{Binding listStatus}" SelectedIndex="{Binding SelectedIndex}"  ItemDisplayBinding="{Binding Value}" />
-                    <Label Text="Detail" Grid.Row="4" Grid.Column="0" Style="{StaticResource styleLabel}"/>
-                    <Editor Placeholder="Fill detail product" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Detail}" />
+                    <Label Text="Type" Grid.Row="4" Grid.Column="0" Style="{StaticResource styleLabel}"/>
+                    <Picker Grid.Row="4" Grid.Column="1" ItemsSource="{Binding listTypes}" SelectedIndex="{Binding SelectedIndexType}"  ItemDisplayBinding="{Binding Value}" />
+                    <Label Text="Detail" Grid.Row="5" Grid.Column="0" Style="{StaticResource styleLabel}"/>
+                    <Editor Placeholder="Fill detail product" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Detail}" />
                 </Grid>
             </StackLayout>
         </ScrollView>

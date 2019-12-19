@@ -25,14 +25,25 @@ namespace MyDrink.ViewModels
             {
                 this.Item1 = item1;
                 this.Item2 = item2;
+              
             }
         }
         public Drink _selectedDrinnk { get; set; }
         public Command DetailDrinkCommand { get; }
         public Command CreateProductCommand { get; }
+        public string titlePage { get; set; }
         public HomePageViewModel()
         {
+            this.titlePage = "All Product";
             GetAllDrinksAsync("https://mydrink-api.herokuapp.com/api/drink/get-all-product");
+            DetailDrinkCommand = new Command<Drink>(async (drink) => await OpenOtherPage(drink));
+            CreateProductCommand = new Command(async () => await CreateProduct());
+        }
+        public HomePageViewModel(string fill, string value)
+        {
+            this.titlePage =value;
+            GetDrinkFilter("https://mydrink-api.herokuapp.com/api/drink/get-product-by-" + fill + "/" + value);
+            
             DetailDrinkCommand = new Command<Drink>(async (drink) => await OpenOtherPage(drink));
             CreateProductCommand = new Command(async () => await CreateProduct());
         }
@@ -68,12 +79,42 @@ namespace MyDrink.ViewModels
                     {
                         this.listDrinks.Add(new DrinkPair(listDrink[i], listDrink[i + 1]));
                         this.oddDrink = true;
-                    } else
+                    } 
+                }
+                if (listDrink.Count % 2 == 1)
+                {
+                    this.oddDrink = false;
+                    this.listDrinks.Add(new DrinkPair(listDrink[listDrink.Count - 1], null));
+                }
+            }
+            Console.WriteLine(this.listDrinks);
+        }
+       async public void GetDrinkFilter(string path)
+        {
+            ObservableCollection<Drink> listDrink;
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(path);
+            if (response.IsSuccessStatusCode)
+            {
+                var resp = await response.Content.ReadAsStringAsync();
+
+                listDrink = JsonConvert.DeserializeObject<ObservableCollection<Drink>>(resp);
+                for (int i = 0; i < listDrink.Count; i += 2)
+                {
+                    if (i + 1 < listDrink.Count)
                     {
-                        this.listDrinks.Add(new DrinkPair(listDrink[i], null));
-                        this.oddDrink = false;
+                        this.listDrinks.Add(new DrinkPair(listDrink[i], listDrink[i + 1]));
+                        this.oddDrink = true;
                     }
                 }
+                if (listDrink.Count % 2 == 1)
+                {
+                    this.oddDrink = false;
+                    this.listDrinks.Add(new DrinkPair(listDrink[listDrink.Count-1], null));
+                }
+            } else
+            {
+                Application.Current.MainPage.DisplayAlert("Alert", "Empty product", "ok");
             }
             Console.WriteLine(this.listDrinks);
         }

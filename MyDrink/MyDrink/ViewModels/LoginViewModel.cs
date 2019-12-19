@@ -24,14 +24,14 @@ namespace MyDrink.ViewModels
     {
         public class FormLogin
         {
-            public string userName { get; set; }
+            public string phoneNumber { get; set; }
             public string password { get; set; }
             public FormLogin()
             {
             }
-            public FormLogin(string username, string pass)
+            public FormLogin(string phoneNumber, string pass)
             {
-                this.userName = username;
+                this.phoneNumber = phoneNumber;
                 this.password = pass;
             }
         }
@@ -43,11 +43,11 @@ namespace MyDrink.ViewModels
         }
         async Task Login ()
         {
-            if ( userName.Length != 0 && password.Length !=0)
+            if ( phoneNumber.Length != 0 && password.Length !=0)
             {
                 try
                 {
-                    FormLogin data = new FormLogin(userName, password);
+                    FormLogin data = new FormLogin(phoneNumber, password);
                     _ = await GetLoginAsync(data);
                 }
                 catch
@@ -90,18 +90,18 @@ namespace MyDrink.ViewModels
             }
             return user;
         }
-        string userName;
+        string phoneNumber;
         string password;
         void OnPropertyChanged([CallerMemberName] string name = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-        public string UserName
+        public string PhoneNumber
         {
-            get { return userName; }
+            get { return phoneNumber; }
             set
             {
-                userName = value;
+                phoneNumber = value;
                 OnPropertyChanged();
             }
         }
@@ -109,7 +109,7 @@ namespace MyDrink.ViewModels
         {
             get
             {
-                return userName + " ---- "+password;
+                return phoneNumber + " ---- "+password;
             }
         }
         public string Password
