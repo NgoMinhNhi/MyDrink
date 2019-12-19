@@ -12,7 +12,6 @@ using MyDrink.Models;
 using MyDrink.Helpers;
 using System.Net.Http;
 using Newtonsoft.Json;
-using System.Diagnostics;
 
 namespace MyDrink.ViewModels
 {
@@ -23,6 +22,19 @@ namespace MyDrink.ViewModels
     }
     public class LoginViewModel : INotifyPropertyChanged
     {
+        public class FormLogin
+        {
+            public string userName { get; set; }
+            public string password { get; set; }
+            public FormLogin()
+            {
+            }
+            public FormLogin(string username, string pass)
+            {
+                this.userName = username;
+                this.password = pass;
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         Database db = new Database();
         public LoginViewModel()
@@ -31,64 +43,50 @@ namespace MyDrink.ViewModels
         }
         async Task Login ()
         {
-            try
+            if ( userName.Length != 0 && password.Length !=0)
             {
-                //if(string.Compare(userName, "ngominhnhi") == 0 && string.Compare(password, "ngominhnhi")== 0)
-                //{
-                //    //await Application.Current.MainPage.Navigation.PushModalAsync(new MainShell());
-                //    db.createDatabase();
+                try
+                {
+                    FormLogin data = new FormLogin(userName, password);
+                    _ = await GetLoginAsync(data);
+                }
+                catch
+                {
 
-                //    if (db.InsertStateLogin(SaveLogin()))
-                //    {
-                //        Application.Current.MainPage.DisplayAlert("Alert", "Login Success", "ok");
-                //    } else
-                //    {
-                //        Application.Current.MainPage.DisplayAlert("Alert", "Login Fail", "ok");
-                //    }
-                //    Application.Current.MainPage = new MainShell();
-
-
-                //}
-                //else
-                //{
-                //    Application.Current.MainPage.DisplayAlert("Alert", userName + "+" + password + "@" + string.Compare(userName, "ngominhnhi")+ "@"+ string.Compare(password, "ngominhnhi"), "ok");
-                //}
-                StateLogin data = new StateLogin(userName, password);
-                _ = await GetProductAsync(data);
-            }
-            catch
+                }
+            } else
             {
-
+                Application.Current.MainPage.DisplayAlert("Alert", "All fields is required", "ok");
             }
+            
         }
-        public StateLogin SaveLogin()
+        public StateLogin SaveLogin(string id, int admin)
         {
-            StateLogin store = new StateLogin
-            {
-                userName = userName,
-                password = password
-            };
+            StateLogin store = new StateLogin(id, admin);
             return store;
         }
-        
-        async Task<User> GetProductAsync(StateLogin login)
+        async Task<User> GetLoginAsync(FormLogin login)
         {
             User user = null;
-            Data data = null;
+            //Data data = null;
             var client = new HttpClient();
             HttpResponseMessage response = await client.PostAsJsonAsync("https://mydrink-api.herokuapp.com/api/user/login", login);
             if (response.IsSuccessStatusCode)
             {
-                var resp = await response.Content.ReadAsStringAsync();
-
-                data = JsonConvert.DeserializeObject<Data>(resp);
-                //Application.Current.MainPage.DisplayAlert("Alert", "Login Successsssss" + data.success, "ok");
-                Console.WriteLine(data);
-                Debug.WriteLine(data);
-                //Application.Current.MainPage.DisplayAlert("Alert", "Login Successsssss" + data.success, "ok");
+                user = await response.Content.ReadAsAsync<User>();
+                db.createDatabase();
+                if (db.InsertStateLogin(SaveLogin(user._id, user.isAdmin)))
+                {
+                    Application.Current.MainPage.DisplayAlert("Alert", "Login Success", "ok");
+                    Application.Current.MainPage = new MainShell();
+                } else
+                {
+                    Application.Current.MainPage.DisplayAlert("Alert", "Error", "ok");
+                }
+                
             } else
             {
-                Application.Current.MainPage.DisplayAlert("Alert", "Login Fail" + response.IsSuccessStatusCode, "ok");
+                Application.Current.MainPage.DisplayAlert("Alert", "Login Fail", "ok");
             }
             return user;
         }

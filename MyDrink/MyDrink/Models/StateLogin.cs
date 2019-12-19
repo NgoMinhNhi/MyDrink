@@ -7,17 +7,15 @@ namespace MyDrink.Models
 {
     public class StateLogin
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
-        public string userName { get; set; }
-        public string password { get; set; }
+        public string _id { get; set; }
+        public int isAdmin { get; set; }
         public StateLogin()
         {
         }
-        public StateLogin(string username, string pass)
+        public StateLogin(string id , int admin)
         {
-            this.userName = username;
-            this.password = pass;
+            this._id = id;
+            this.isAdmin = admin;
         }
     }
 }

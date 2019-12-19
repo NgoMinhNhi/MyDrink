@@ -1,10 +1,14 @@
-﻿using System;
+﻿using MyDrink.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using MyDrink.Helpers;
+using MyDrink.Views;
 
 namespace MyDrink.ViewModels
 {
@@ -15,6 +19,18 @@ namespace MyDrink.ViewModels
         string phoneNumber;
         string password;
         string confirmPassword;
+        public class FormRegister
+        {
+            public string userName { get; set; }
+            public string phoneNumber { get; set; }
+            public string password { get; set; }
+            public FormRegister(string username, string phonenumber, string pass)
+            {
+                this.userName = username;
+                this.password = pass;
+                this.phoneNumber = phonenumber;
+            }
+        }
         public RegisterViewModel ()
         {
             CommandSignUp = new Command(async () => await SignUp());
@@ -25,7 +41,7 @@ namespace MyDrink.ViewModels
             {
                 if (string.Compare(password, confirmPassword) == 0)
                 {
-                    Application.Current.MainPage.DisplayAlert("Alert", userName + phoneNumber + password + confirmPassword, "ok");
+                    GetLoginAsync(new FormRegister(userName, phoneNumber, password));
                 } else
                 {
                     Application.Current.MainPage.DisplayAlert("Alert", "Confirm password not match", "ok");
@@ -35,6 +51,33 @@ namespace MyDrink.ViewModels
                 Application.Current.MainPage.DisplayAlert("Alert", "You must fill all field", "ok");
             }
             
+        }
+        Database db = new Database();
+        async Task GetLoginAsync(FormRegister register)
+        {
+            User user = null;
+            //Data data = null;
+            var client = new HttpClient();
+            HttpResponseMessage response = await client.PostAsJsonAsync("https://mydrink-api.herokuapp.com/api/user/registry", register);
+            if (response.IsSuccessStatusCode)
+            {
+                Application.Current.MainPage.DisplayAlert("Alert", "Register Success", "ok");
+                user = await response.Content.ReadAsAsync<User>();
+                db.createDatabase();
+                if (db.InsertStateLogin(new StateLogin(user._id, user.isAdmin)))
+                {
+                    Application.Current.MainPage = new MainShell();
+                }
+                else
+                {
+                    Application.Current.MainPage.DisplayAlert("Alert", "Error", "ok");
+                }
+
+            }
+            else
+            {
+                Application.Current.MainPage.DisplayAlert("Alert", "Login Fail" + response.IsSuccessStatusCode, "ok");
+            }
         }
         void OnPropertyChanged([CallerMemberName] string name = "")
         {

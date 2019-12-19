@@ -13,10 +13,10 @@ namespace MyDrink.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailDrink : ContentPage
     {
-        public DetailDrink()
+        public DetailDrink(Models.Drink drink)
         {
             InitializeComponent();
-            BindingContext = new DetailDrinkViewModel();
+            BindingContext = new DetailDrinkViewModel(drink);
         }
     }
 }

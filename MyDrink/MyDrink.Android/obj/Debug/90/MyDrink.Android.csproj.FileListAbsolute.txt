@@ -556,3 +556,10 @@ C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\an
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\System.Text.Encoding.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\System.Text.Encoding.Extensions.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\System.Text.RegularExpressions.dll
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\linksrc\Behaviors.dll
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\linksrc\System.ObjectModel.dll
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\linksrc\Behaviors.pdb
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\Behaviors.dll
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\Behaviors.pdb
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\System.ObjectModel.dll
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\res\drawable\shoppingcart.png

@@ -13,7 +13,7 @@
         </Style>
     </ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="iconSetting" Icon="done.png" Priority="0" Order="Primary"/>
+        <ToolbarItem Name="iconSetting" Command="{Binding CreateProductCommand}" Icon="done.png" Priority="0" Order="Primary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
@@ -28,6 +28,7 @@
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
                         <RowDefinition Height="100"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -36,11 +37,13 @@
                     </Grid.ColumnDefinitions>
                     <Label Text="FILL INFO PRODUCT" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="20"/>
                     <Label Text="Name" Grid.Row="1" Grid.Column="0" Style="{StaticResource styleLabel}"/>
-                    <Entry Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="End" Text="" />
+                    <Entry Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="End" Text="{Binding Name}" />
                     <Label Text="Price" Grid.Row="2" Grid.Column="0" Style="{StaticResource styleLabel}"/>
-                    <Entry Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="End" Text="" />
-                    <Label Text="Detail" Grid.Row="3" Grid.Column="0" Style="{StaticResource styleLabel}"/>
-                    <Editor Placeholder="Fill detail product" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="" />
+                    <Entry Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="End" Text="{Binding Price}" />
+                    <Label Text="Status" Grid.Row="3" Grid.Column="0" Style="{StaticResource styleLabel}"/>
+                    <Picker Grid.Row="3" Grid.Column="1" ItemsSource="{Binding listStatus}" SelectedIndex="{Binding SelectedIndex}"  ItemDisplayBinding="{Binding Value}" />
+                    <Label Text="Detail" Grid.Row="4" Grid.Column="0" Style="{StaticResource styleLabel}"/>
+                    <Editor Placeholder="Fill detail product" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Detail}" />
                 </Grid>
             </StackLayout>
         </ScrollView>

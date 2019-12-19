@@ -3,6 +3,7 @@ public class MonoPackageManager_Resources {
 	public static String[] Assemblies = new String[]{
 		/* We need to ensure that "MyDrink.Android.dll" comes first in this list. */
 		"MyDrink.Android.dll",
+		"Behaviors.dll",
 		"FormsViewGroup.dll",
 		"MyDrink.dll",
 		"Newtonsoft.Json.Bson.dll",

@@ -48,7 +48,7 @@ namespace MyDrink.ViewModels
             try
             {
                 StateLogin store = db.GetStateLogin();
-                Application.Current.MainPage.DisplayAlert("Alert", "inof" + store.Id + " + " + store.userName+ " + ", "ok");
+                Application.Current.MainPage.DisplayAlert("Alert", "inof" + store._id, "ok");
             }
             catch
             {

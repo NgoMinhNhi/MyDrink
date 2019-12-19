@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyDrink.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace MyDrink.Views
         public AddProduct()
         {
             InitializeComponent();
+            BindingContext = new AddProductViewModel();
         }
     }
 }
