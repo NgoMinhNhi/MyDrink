@@ -1,12 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             BackgroundColor="#f3f3f3"
-             Title="Home"
-             x:Class="MyDrink.Views.MainHomePage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" BackgroundColor="#f3f3f3" Title="Home" x:Class="MyDrink.Views.MainHomePage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="iconSetting" Icon="shoppingCart.png" Command="{Binding OpenShoppingCartCommand}" Priority="0" Order="Primary"/>
         <ToolbarItem Name="iconSetting" Icon="notify.png" Priority="0" Order="Primary"/>
@@ -28,21 +24,21 @@
                     <RowDefinition Height="200"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" FontSize="25" TextColor="Blue" Text="Status"/>
-                <StackLayout Grid.Row="1" Grid.Column="0" Margin="0,0,0,20" BackgroundColor="#fff" >
+                <StackLayout Grid.Row="1" Grid.Column="0" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding FillByStatusCommand}" CommandParameter="New"  />
+                        <TapGestureRecognizer Command="{Binding FillByStatusCommand}" CommandParameter="New" />
                     </StackLayout.GestureRecognizers>
                     <Label Text="New" FontSize="18" Margin="5" />
                     <Image Source="coffee.png" WidthRequest="100" />
                 </StackLayout>
-                <StackLayout Grid.Row="1" Grid.Column="1" Margin="0,0,0,20" BackgroundColor="#fff" >
+                <StackLayout Grid.Row="1" Grid.Column="1" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers >
                         <TapGestureRecognizer Command="{Binding FillByStatusCommand}" CommandParameter="Hot" />
                     </StackLayout.GestureRecognizers>
                     <Label Text="Hot" FontSize="18" Margin="5" />
                     <Image Source="coffee.png" WidthRequest="100" />
                 </StackLayout>
-                <StackLayout Grid.Row="1" Grid.Column="2" Margin="0,0,0,20" BackgroundColor="#fff" >
+                <StackLayout Grid.Row="1" Grid.Column="2" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding FillByStatusCommand}" CommandParameter="Percent Off" />
                     </StackLayout.GestureRecognizers>
@@ -50,42 +46,42 @@
                     <Image Source="coffee.png" WidthRequest="100" />
                 </StackLayout>
                 <Label Text="Category" FontSize="25" TextColor="Blue" Grid.Row="2"/>
-                <StackLayout Grid.Row="3" Grid.Column="0" Margin="0,0,0,20" BackgroundColor="#fff" >
+                <StackLayout Grid.Row="3" Grid.Column="0" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding FillByTypeCommand}" CommandParameter="Milk Tea" />
                     </StackLayout.GestureRecognizers>
                     <Label Text="Milk Tea" FontSize="18" Margin="5" />
                     <Image Source="coffee.png" WidthRequest="100" />
                 </StackLayout>
-                <StackLayout Grid.Row="3" Grid.Column="1" Margin="0,0,0,20" BackgroundColor="#fff" >
+                <StackLayout Grid.Row="3" Grid.Column="1" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding FillByTypeCommand}" CommandParameter="Coffee" />
                     </StackLayout.GestureRecognizers>
                     <Label Text="Coffee" FontSize="18" Margin="5" />
                     <Image Source="coffee.png" WidthRequest="100" />
                 </StackLayout>
-                <StackLayout Grid.Row="3" Grid.Column="2" Margin="0,0,0,20" BackgroundColor="#fff" >
+                <StackLayout Grid.Row="3" Grid.Column="2" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding FillByTypeCommand}" CommandParameter="Juice" />
                     </StackLayout.GestureRecognizers>
                     <Label Text="Juice" FontSize="18" Margin="5" />
                     <Image Source="coffee.png" WidthRequest="100" />
                 </StackLayout>
-                <StackLayout Grid.Row="4" Grid.Column="0" Margin="0,0,0,20" BackgroundColor="#fff" >
+                <StackLayout Grid.Row="4" Grid.Column="0" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding FillByTypeCommand}" CommandParameter="Ice blended" />
                     </StackLayout.GestureRecognizers>
                     <Label Text="Ice blended" FontSize="18" Margin="5" />
                     <Image Source="coffee.png" WidthRequest="100" />
                 </StackLayout>
-                <StackLayout Grid.Row="4" Grid.Column="1" Margin="0,0,0,20" BackgroundColor="#fff" >
+                <StackLayout Grid.Row="4" Grid.Column="1" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding FillByTypeCommand}" CommandParameter="Hot Drink" />
                     </StackLayout.GestureRecognizers>
                     <Label Text="Hot Drink" FontSize="18" Margin="5" />
                     <Image Source="coffee.png" WidthRequest="100" />
                 </StackLayout>
-                <StackLayout Grid.Row="4" Grid.Column="2" Margin="0,0,0,20" BackgroundColor="#fff" >
+                <StackLayout Grid.Row="4" Grid.Column="2" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding FillByTypeCommand}" CommandParameter="Cocktail" />
                     </StackLayout.GestureRecognizers>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="{Binding title}"
+             x:Name="PageName"
+             x:Class="MyDrink.Views.OrderLog">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView SeparatorVisibility="None"
+                      HasUnevenRows="True"
+                      ItemsSource="{Binding listOrder}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout 
+                                         Margin="10,5,5,5"
+                                         BackgroundColor="#ffffff">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.DetailOrderCommand, Source={x:Reference PageName}}"
+                                                          CommandParameter="{Binding .}" />
+                                </StackLayout.GestureRecognizers>
+                                <Label HeightRequest="18"
+                                       Text="{Binding phoneNumber, StringFormat='Phone Number : {0}'}"
+                                       FontSize="16"
+                                       TextColor="#828282"
+                                       Margin="6,10,0,0" />
+                                <Label HeightRequest="18"
+                                       Text="{Binding address, StringFormat='Address : {0}'}"
+                                       FontSize="16"
+                                       TextColor="#828282"
+                                       Margin="6,0,0,0" />
+                                <Label HeightRequest="18" Margin="6,0,0,0" FontSize="14" Text="{Binding timeOrder,StringFormat='Time Order : {dd/MM/yyyy - HH:mm}'}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

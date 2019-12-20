@@ -102,6 +102,30 @@ namespace MyDrink.ViewModels
             }
             
         }
+        public bool NotIsAdmin
+        {
+            get
+            {
+                Database db = new Database();
+                StateLogin store = db.GetStateLogin();
+                if (store == null)
+                {
+                    return true;
+                }
+                else
+                {
+                    if (store.isAdmin == 1)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+            }
+
+        }
         public int selectedSizeIndex = 0;
         public int selectedQuantityIndex = 0;
         public int SelectedSizeIndex

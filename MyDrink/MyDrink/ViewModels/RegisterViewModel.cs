@@ -81,7 +81,7 @@ namespace MyDrink.ViewModels
             }
             else
             {
-                Application.Current.MainPage.DisplayAlert("Alert", "Register Fail" + response.IsSuccessStatusCode, "ok");
+                Application.Current.MainPage.DisplayAlert("Alert", "Register Fail" , "ok");
             }
         }
         async Task CheckExistPhoneNumber(string phone)
@@ -94,16 +94,16 @@ namespace MyDrink.ViewModels
                 user = await response.Content.ReadAsAsync<User>();
                 if( user == null)
                 {
-                    GetLoginAsync(new FormRegister(userName, phoneNumber, password, address));
+                    await GetLoginAsync(new FormRegister(userName, phoneNumber, password, address));
                 } else
                 {
                     Application.Current.MainPage.DisplayAlert("Alert", "Phone number has been registered", "ok");
                 }
-
+                Console.WriteLine(user);
             }
             else
             {
-                Application.Current.MainPage.DisplayAlert("Alert", "Login Fail", "ok");
+                Application.Current.MainPage.DisplayAlert("Alert", "Register Fail", "ok");
             }
         }
         void OnPropertyChanged([CallerMemberName] string name = "")

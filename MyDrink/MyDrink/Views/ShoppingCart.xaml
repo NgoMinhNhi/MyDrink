@@ -7,28 +7,30 @@
              Title="Shooping Cart"
              x:Class="MyDrink.Views.ShoppingCart">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Margin="5,50,5,10">
-                <Label Text="Order" Margin="5,30,0,0" FontSize="25"/>
-                <FlexLayout JustifyContent="SpaceBetween" Margin="10,10,10,15">
-                    <Label Text="Total Price" FontSize="15"/>
-                    <Label Text="{Binding totalPriceOrder, StringFormat='${0}'}" FontSize="15" />
-                </FlexLayout>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Text="Product" HorizontalOptions="Center" Grid.Column="0"/>
-                    <Label Text="Price xQuantity" HorizontalOptions="Center" Grid.Column="1"/>
-                </Grid>
-                <BoxView Color="CornflowerBlue"
+        <StackLayout Margin="5,50,5,10">
+            <Label Text="Order" Margin="15,30,0,0" FontSize="30"/>
+            <FlexLayout JustifyContent="SpaceBetween" Margin="10,10,10,15">
+                <Label Text="Total Price" FontSize="18"/>
+                <Label Text="{Binding totalPriceOrder, StringFormat='${0}'}" FontSize="18" />
+            </FlexLayout>
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Label Text="Product" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0"/>
+                <Label Text="Price xQuantity" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1"/>
+            </Grid>
+            <BoxView Color="CornflowerBlue"
                          WidthRequest="500"
                          HeightRequest="2"
                          VerticalOptions="Center"
-                         HorizontalOptions="Center" Margin="0,5,0,20" />
-                <ListView ItemsSource="{Binding listOrders}"
+                         HorizontalOptions="Center"  />
+            <ListView ItemsSource="{Binding listOrders}"
                 SeparatorVisibility="None" HasUnevenRows="True"
                 >
                 <ListView.ItemTemplate>
@@ -44,7 +46,7 @@
                                         <ColumnDefinition Width="1*"/>
                                         <ColumnDefinition Width="3*"/>
                                         <ColumnDefinition Width="1*"/>
-                                        </Grid.ColumnDefinitions>
+                                    </Grid.ColumnDefinitions>
                                     <Image  VerticalOptions="Center" Grid.Column="0" Source="coffee.png" WidthRequest="40" Margin="0,15,0,15"/>
                                     <Label  VerticalOptions="Center" Text="{Binding drinkName}" Grid.Column="1"/>
                                     <Label FontSize="12"  VerticalOptions="Center" HorizontalOptions="Center" Text="{Binding drinkPrice, StringFormat='${0}'}" Grid.Column="2"/>
@@ -53,17 +55,25 @@
                                     <StackLayout VerticalOptions="Center" Grid.Column="5">
                                         <Image  Source="bin.png" HorizontalOptions="Start"  WidthRequest="25" />
                                     </StackLayout>
-                                     
-                                    </Grid>
 
+                                </Grid>
+                                <BoxView Color="#b7b9b9"
+                                        WidthRequest="400"
+                                        HeightRequest="2"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center" Margin="0,5,0,20" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
 
             </ListView>
-                
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal"  >
+                <Button  WidthRequest="350"
+                         BackgroundColor="#0d9f67"
+                         Text="Order"
+                         Command="{Binding SubmitOrderCommand}"/>
             </StackLayout>
-        </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

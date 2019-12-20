@@ -1,11 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             Title="{Binding detailDrink.name}"
-             x:Class="MyDrink.Views.DetailDrink">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" Title="{Binding detailDrink.name}" x:Class="MyDrink.Views.DetailDrink">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -34,7 +31,7 @@
                     <Entry Text="{Binding detail}" />
                 </StackLayout>
                 <ActivityIndicator Color="#2161A1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}" />
-                <Button Text="Add to cart" BackgroundColor="#0d9f67" Command="{Binding AddToCartCommand}" />
+                <Button Text="Add to cart" BackgroundColor="#0d9f67" IsVisible="{Binding NotIsAdmin}" Command="{Binding AddToCartCommand}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

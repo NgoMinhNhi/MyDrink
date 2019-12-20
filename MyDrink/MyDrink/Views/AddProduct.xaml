@@ -1,11 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             Title="Add Product"
-             x:Class="MyDrink.Views.AddProduct">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" Title="Add Product" x:Class="MyDrink.Views.AddProduct">
     <ContentPage.Resources>
         <Style x:Key="styleLabel" TargetType="Label">
             <Setter Property="FontSize" Value="17"/>
@@ -42,15 +39,15 @@
                     <Label Text="Price" Grid.Row="2" Grid.Column="0" Style="{StaticResource styleLabel}"/>
                     <Entry Grid.Row="2" Grid.Column="1" HorizontalTextAlignment="End" Text="{Binding Price}" />
                     <Label Text="Status" Grid.Row="3" Grid.Column="0" Style="{StaticResource styleLabel}"/>
-                    <Picker Grid.Row="3" Grid.Column="1" ItemsSource="{Binding listStatus}" SelectedIndex="{Binding SelectedIndex}"  ItemDisplayBinding="{Binding Value}" />
+                    <Picker Grid.Row="3" Grid.Column="1" ItemsSource="{Binding listStatus}" SelectedIndex="{Binding SelectedIndex}" ItemDisplayBinding="{Binding Value}" />
                     <Label Text="Type" Grid.Row="4" Grid.Column="0" Style="{StaticResource styleLabel}"/>
-                    <Picker Grid.Row="4" Grid.Column="1" ItemsSource="{Binding listTypes}" SelectedIndex="{Binding SelectedIndexType}"  ItemDisplayBinding="{Binding Value}" />
+                    <Picker Grid.Row="4" Grid.Column="1" ItemsSource="{Binding listTypes}" SelectedIndex="{Binding SelectedIndexType}" ItemDisplayBinding="{Binding Value}" />
                     <Label Text="Detail" Grid.Row="5" Grid.Column="0" Style="{StaticResource styleLabel}"/>
                     <Editor Placeholder="Fill detail product" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Detail}" />
                 </Grid>
                 <ActivityIndicator Color="#2161A1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}" />
             </StackLayout>
-            
+
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

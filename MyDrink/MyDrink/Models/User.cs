@@ -10,7 +10,7 @@ namespace MyDrink.Models
         //[PrimaryKey, AutoIncrement]
         public string _id { get; set; }
         public string userName { get; set; }
-        public string phoneNunber { get; set; }
+        public string phoneNumber { get; set; }
         public string address { get; set;  }
         public string email { get; set; }
         public int isAdmin { get; set; }

@@ -15,12 +15,22 @@ namespace MyDrink.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         Database db = new Database();
-
+        public string title { get; set; }
         public Command LogoutCommand { get; }
         public Command CheckInfoCommand { get; }
 
         public MainShellViewModel ()
         {
+            Database db = new Database();
+            StateLogin store = db.GetStateLogin();
+            if (store.isAdmin == 0)
+            {
+                this.title = "Order Log";
+            }
+            else
+            {
+                this.title = "Management Order";
+            }
             LogoutCommand = new Command(async () => await Logout());
             CheckInfoCommand = new Command(async () => await CheckInfo());
         }

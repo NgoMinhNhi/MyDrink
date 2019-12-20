@@ -1,65 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             BackgroundColor="#f3f3f3"
-             Title="{Binding titlePage}"
-             x:Name="PageName"
-             x:Class="MyDrink.Views.HomePage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" BackgroundColor="#f3f3f3" Title="{Binding titlePage}" x:Name="PageName" x:Class="MyDrink.Views.HomePage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="iconSetting" Icon="shoppingCart.png" Command="{Binding OpenShoppingCartCommand}" Priority="0" Order="Primary"/>
         <ToolbarItem Name="iconSetting" Icon="notify.png" Priority="0" Order="Primary"/>
-        
+
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ScrollView >
-            <StackLayout>
-                <Button WidthRequest="150" BackgroundColor="#0d9f67" IsVisible="{Binding IsAdmin}" Text="Add Product" Command="{Binding CreateProductCommand}" />
-                <ActivityIndicator Color="#2161A1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}" />
-                <ListView SeparatorVisibility="None" HasUnevenRows="True" ItemsSource="{Binding listDrinks}"
-                            >
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <StackLayout  Grid.Column="0" BindingContext="{Binding Item1}"   Margin="10,5,5,5"  BackgroundColor="#ffffff"  >
-                                        <StackLayout.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.DetailDrinkCommand, Source={x:Reference PageName}}" CommandParameter="{Binding .}" />
-                                        </StackLayout.GestureRecognizers>
-                                        <Label Text="{Binding name}" FontSize="16" TextColor="#828282" Margin="6,10,0,0" />
-                                        <Label Text="{Binding status}" FontSize="10" TextColor="#828282" HorizontalOptions="End" Margin="0,0,5,0" />
-                                        <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
-                                        <FlexLayout JustifyContent="SpaceBetween" Margin="10,10,10,15">
-                                            <Label Text="{Binding price, StringFormat='Price ${0}'}" TextColor="#0d9f67"  />
-                                            <Image Source="heartIcon.png" WidthRequest="20" />
-                                        </FlexLayout>
-                                    </StackLayout>
-                                    <StackLayout Grid.Column="1"  BindingContext="{Binding Item2}" Margin="5,5,10,5"  BackgroundColor="#ffffff"  >
-                                        <StackLayout.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding Path=BindingContext.DetailDrinkCommand, Source={x:Reference PageName}}" CommandParameter="{Binding .}" />
-                                        </StackLayout.GestureRecognizers>
-                                        <Label Text="{Binding name}" FontSize="16" TextColor="#828282" Margin="6,10,0,0" />
-                                        <Label Text="{Binding status}" FontSize="10" TextColor="#828282" HorizontalOptions="End" Margin="0,0,5,0" />
-                                        <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
-                                        <FlexLayout JustifyContent="SpaceBetween" Margin="10,10,10,15">
-                                            <Label Text="{Binding price, StringFormat='Price ${0}'}" TextColor="#0d9f67"  />
-                                            <Image Source="heartIcon.png" WidthRequest="20" />
-                                        </FlexLayout>
-                                    </StackLayout>
+        <StackLayout Margin="{Binding Margin}">
+            <Button WidthRequest="150" BackgroundColor="#0d9f67" IsVisible="{Binding IsAdmin}" Text="Add Product" Command="{Binding CreateProductCommand}" />
+            <!--<ActivityIndicator Color="#2161A1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}" />-->
+            <ListView SeparatorVisibility="None" HasUnevenRows="True" ItemsSource="{Binding listDrinks}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0" BindingContext="{Binding Item1}" Margin="10,5,5,5" BackgroundColor="#ffffff">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.DetailDrinkCommand, Source={x:Reference PageName}}" CommandParameter="{Binding .}" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Label HeightRequest="22" Text="{Binding name}" FontSize="16" TextColor="#828282" Margin="6,10,0,0" />
+                                    <Label Text="{Binding status}" FontSize="10" TextColor="#828282" HorizontalOptions="End" Margin="0,0,5,0" />
+                                    <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
+                                    <FlexLayout JustifyContent="SpaceBetween" Margin="10,10,10,15">
+                                        <Label Text="{Binding price, StringFormat='Price ${0}'}" TextColor="#0d9f67" />
+                                        <Image Source="heartIcon.png" WidthRequest="20" />
+                                    </FlexLayout>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1" BindingContext="{Binding Item2}" Margin="5,5,10,5" BackgroundColor="#ffffff">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.DetailDrinkCommand, Source={x:Reference PageName}}" CommandParameter="{Binding .}" />
+                                    </StackLayout.GestureRecognizers>
+                                    <Label HeightRequest="22" Text="{Binding name}" FontSize="16" TextColor="#828282" Margin="6,10,0,0" />
+                                    <Label Text="{Binding status}" FontSize="10" TextColor="#828282" HorizontalOptions="End" Margin="0,0,5,0" />
+                                    <Image Source="coffee.png" WidthRequest="80" Margin="0,15,0,15"/>
+                                    <FlexLayout JustifyContent="SpaceBetween" Margin="10,10,10,15">
+                                        <Label Text="{Binding price, StringFormat='Price ${0}'}" TextColor="#0d9f67" />
+                                        <Image Source="heartIcon.png" WidthRequest="20" />
+                                    </FlexLayout>
+                                </StackLayout>
 
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-    
-            </StackLayout>
-        </ScrollView>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -33,8 +33,10 @@ namespace MyDrink.ViewModels
         public Command CreateProductCommand { get; }
         public Command OpenShoppingCartCommand { get; }
         public string titlePage { get; set; }
+        public int marginTop { get; set; }
         public HomePageViewModel()
         {
+            this.marginTop = 0;
             this.titlePage = "All Product";
             this.isBusy = true;
             GetAllDrinksAsync("https://mydrink-api.herokuapp.com/api/drink/get-all-product");
@@ -43,8 +45,22 @@ namespace MyDrink.ViewModels
             OpenShoppingCartCommand = new Command(async () => await OpenShoppingCart());
             
         }
+        public Thickness Margin
+        {
+            get { return new Thickness(0, this.marginTop,0, 0); }
+        }
         public HomePageViewModel(string fill, string value)
         {
+            Database db = new Database();
+            StateLogin store = db.GetStateLogin();
+            if (store.isAdmin == 1)
+            {
+                this.marginTop = 0;
+            } else
+            {
+                this.marginTop = 60;
+            }
+            
             this.titlePage =value;
             this.isBusy = true;
             GetDrinkFilter("https://mydrink-api.herokuapp.com/api/drink/get-product-by-" + fill + "/" + value);
@@ -122,12 +138,10 @@ namespace MyDrink.ViewModels
                     if (i + 1 < listDrink.Count)
                     {
                         this.listDrinks.Add(new DrinkPair(listDrink[i], listDrink[i + 1]));
-                        this.oddDrink = true;
                     }
                 }
                 if (listDrink.Count % 2 == 1)
                 {
-                    this.oddDrink = false;
                     this.listDrinks.Add(new DrinkPair(listDrink[listDrink.Count-1], null));
                 }
             } else
