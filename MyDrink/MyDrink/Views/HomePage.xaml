@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design" 
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" BackgroundColor="#f3f3f3" Title="{Binding titlePage}" x:Name="PageName" x:Class="MyDrink.Views.HomePage">
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" BackgroundColor="#f3f3f3" Title="{Binding titlePage}" x:Name="PageName" x:Class="MyDrink.Views.HomePage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="iconSetting" Icon="shoppingCart.png" Command="{Binding OpenShoppingCartCommand}" Priority="0" Order="Primary"/>
         <ToolbarItem Name="iconSetting" Icon="notify.png" Priority="0" Order="Primary"/>

@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design" 
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" BackgroundColor="#f3f3f3" Title="Home" x:Class="MyDrink.Views.MainHomePage">
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" BackgroundColor="#f3f3f3" Title="Home" x:Class="MyDrink.Views.MainHomePage">
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="iconSetting" Icon="shoppingCart.png" Command="{Binding OpenShoppingCartCommand}" Priority="0" Order="Primary"/>
         <ToolbarItem Name="iconSetting" Icon="notify.png" Priority="0" Order="Primary"/>
@@ -29,7 +30,14 @@
                         <TapGestureRecognizer Command="{Binding FillByStatusCommand}" CommandParameter="New" />
                     </StackLayout.GestureRecognizers>
                     <Label Text="New" FontSize="18" Margin="5" />
-                    <Image Source="coffee.png" WidthRequest="100" />
+                    <!--<Image Source="coffee.png" WidthRequest="100" />-->
+                    <ffimageloading:CachedImage Source="https://mydrink-api.herokuapp.com/upload/d88f9bd1-f338-4a90-90ad-5d640a60d5fc.png"
+                                                LoadingPlaceholder="LoaderImage"
+                                                ErrorPlaceholder= "ErrorImage"
+                                                CacheDuration="50"
+                                                RetryCount="3"
+                                                RetryDelay="600"
+                                                DownsampleToViewSize="true" />
                 </StackLayout>
                 <StackLayout Grid.Row="1" Grid.Column="1" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers >
