@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Detail Order"
+             x:Class="MyDrink.Views.DetailOrder">
+    <ContentPage.Content>
+        <StackLayout Margin="5,70,5,10">
+            <FlexLayout JustifyContent="SpaceBetween"
+                        Margin="10,0,10,5">
+                <Label Text="Total Price"
+                       FontSize="20" />
+                <Label Text="{Binding totalPriceOrder, StringFormat='${0}'}"
+                       FontSize="20" />
+            </FlexLayout>
+            <FlexLayout JustifyContent="SpaceBetween"
+                        Margin="10,0,10,5">
+                <Label Text="Phone Number : "
+                       FontSize="16" />
+                <Label Text="{Binding order.phoneNumber}"
+                       FontSize="16" />
+            </FlexLayout>
+            <FlexLayout JustifyContent="Start"
+                        Margin="10,0,10,5">
+                <Label Text="Address : "
+                       FontSize="16" />
+                <Label Text="{Binding order.address}"
+                       FontSize="16" />
+            </FlexLayout>
+            <FlexLayout JustifyContent="Start"
+                        Margin="10,0,10,15">
+                <Label Text="Time Order : "
+                       FontSize="16" />
+                <Label Text="{Binding order.timeOrder}"
+                       FontSize="16" />
+            </FlexLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+                <Label Text="Product"
+                       HorizontalOptions="Center"
+                       Grid.Row="0"
+                       Grid.Column="0" />
+                <Label Text="Price xQuantity"
+                       HorizontalOptions="Center"
+                       Grid.Row="0"
+                       Grid.Column="1" />
+            </Grid>
+            <BoxView Color="CornflowerBlue"
+                     WidthRequest="500"
+                     HeightRequest="2"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center" />
+            <ListView ItemsSource="{Binding order.listItem}"
+                      SeparatorVisibility="None"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="3*" />
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image  VerticalOptions="Center"
+                                            Grid.Column="0"
+                                            Source="coffee.png"
+                                            WidthRequest="40"
+                                            Margin="0,15,0,15" />
+                                    <Label  VerticalOptions="Center"
+                                            Text="{Binding drinkName}"
+                                            Grid.Column="1" />
+                                    <Label FontSize="12"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center"
+                                           Text="{Binding drinkPrice, StringFormat='${0}'}"
+                                           Grid.Column="2" />
+                                    <Label FontSize="12"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center"
+                                           Text="{Binding quantity, StringFormat='x {0} ='} "
+                                           Grid.Column="3" />
+                                    <Label  FontSize="12"
+                                            VerticalOptions="Center"
+                                            Text="{Binding totalPrice, StringFormat='${0}'}"
+                                            Grid.Column="4" />
+
+                                </Grid>
+                                <FlexLayout JustifyContent="Start"
+                                            Margin="10,10,10,15">
+                                    <Label Text="Detail : "
+                                           FontSize="16" />
+                                    <Label Text="{Binding detail}"
+                                           FontSize="16" />
+                                </FlexLayout>
+                                <BoxView Color="#b7b9b9"
+                                         WidthRequest="400"
+                                         HeightRequest="2"
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="Center"
+                                         Margin="0,5,0,20" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -97,57 +97,75 @@ namespace MyDrink.ViewModels
         }
         async public void GetAllDrinksAsync(string path)
         {
-            ObservableCollection<Drink> listDrink;
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync(path);
-            if (response.IsSuccessStatusCode)
+            try
             {
-                this.isBusy = false;
-                var resp = await response.Content.ReadAsStringAsync();
+                ObservableCollection<Drink> listDrink;
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = await client.GetAsync(path);
+                if (response.IsSuccessStatusCode)
+                {
+                    this.isBusy = false;
+                    var resp = await response.Content.ReadAsStringAsync();
 
-                listDrink = JsonConvert.DeserializeObject<ObservableCollection<Drink>>(resp);
-                for (int i = 0; i < listDrink.Count; i +=2)
-                {
-                    if (i+1 < listDrink.Count)
+                    listDrink = JsonConvert.DeserializeObject<ObservableCollection<Drink>>(resp);
+                    for (int i = 0; i < listDrink.Count; i += 2)
                     {
-                        this.listDrinks.Add(new DrinkPair(listDrink[i], listDrink[i + 1]));
-                        this.oddDrink = true;
-                    } 
+                        if (i + 1 < listDrink.Count)
+                        {
+                            this.listDrinks.Add(new DrinkPair(listDrink[i], listDrink[i + 1]));
+                            this.oddDrink = true;
+                        }
+                    }
+                    if (listDrink.Count % 2 == 1)
+                    {
+                        this.oddDrink = false;
+                        this.listDrinks.Add(new DrinkPair(listDrink[listDrink.Count - 1], null));
+                    }
                 }
-                if (listDrink.Count % 2 == 1)
-                {
-                    this.oddDrink = false;
-                    this.listDrinks.Add(new DrinkPair(listDrink[listDrink.Count - 1], null));
-                }
+            } 
+            catch
+            {
+                Application.Current.MainPage.DisplayAlert("Alert", "Connect Network Error", "ok");
             }
+          
+            
             Console.WriteLine(this.listDrinks);
         }
        async public void GetDrinkFilter(string path)
         {
-            ObservableCollection<Drink> listDrink;
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync(path);
-            if (response.IsSuccessStatusCode)
+            try
             {
-                this.isBusy = false;
-                var resp = await response.Content.ReadAsStringAsync();
-
-                listDrink = JsonConvert.DeserializeObject<ObservableCollection<Drink>>(resp);
-                for (int i = 0; i < listDrink.Count; i += 2)
+                ObservableCollection<Drink> listDrink;
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = await client.GetAsync(path);
+                if (response.IsSuccessStatusCode)
                 {
-                    if (i + 1 < listDrink.Count)
+                    this.isBusy = false;
+                    var resp = await response.Content.ReadAsStringAsync();
+
+                    listDrink = JsonConvert.DeserializeObject<ObservableCollection<Drink>>(resp);
+                    for (int i = 0; i < listDrink.Count; i += 2)
                     {
-                        this.listDrinks.Add(new DrinkPair(listDrink[i], listDrink[i + 1]));
+                        if (i + 1 < listDrink.Count)
+                        {
+                            this.listDrinks.Add(new DrinkPair(listDrink[i], listDrink[i + 1]));
+                        }
+                    }
+                    if (listDrink.Count % 2 == 1)
+                    {
+                        this.listDrinks.Add(new DrinkPair(listDrink[listDrink.Count - 1], null));
                     }
                 }
-                if (listDrink.Count % 2 == 1)
+                else
                 {
-                    this.listDrinks.Add(new DrinkPair(listDrink[listDrink.Count-1], null));
+                    Application.Current.MainPage.DisplayAlert("Alert", "Empty product", "ok");
                 }
-            } else
-            {
-                Application.Current.MainPage.DisplayAlert("Alert", "Empty product", "ok");
             }
+            catch
+            {
+                Application.Current.MainPage.DisplayAlert("Alert", "Connect Network Error", "ok");
+            }
+           
             Console.WriteLine(this.listDrinks);
         }
         public bool IsAdmin

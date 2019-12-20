@@ -31,3 +31,4 @@ C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\obj\Debug\netstandard2.
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\obj\Debug\netstandard2.0\Views\ShoppingCart.xaml.g.cs
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\obj\Debug\netstandard2.0\Views\OrderLog.xaml.g.cs
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink\obj\Debug\netstandard2.0\Views\DetailOrder.xaml.g.cs

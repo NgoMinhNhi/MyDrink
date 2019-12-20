@@ -87,24 +87,34 @@ namespace MyDrink.ViewModels
         async Task CheckExistPhoneNumber(string phone)
         {
             User user = null;
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync("https://mydrink-api.herokuapp.com/api/user/get-user-by-phone/"+phone);
-            if (response.IsSuccessStatusCode)
+            try
             {
-                user = await response.Content.ReadAsAsync<User>();
-                if( user == null)
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = await client.GetAsync("https://mydrink-api.herokuapp.com/api/user/get-user-by-phone/" + phone);
+                if (response.IsSuccessStatusCode)
                 {
-                    await GetLoginAsync(new FormRegister(userName, phoneNumber, password, address));
-                } else
-                {
-                    Application.Current.MainPage.DisplayAlert("Alert", "Phone number has been registered", "ok");
+                    user = await response.Content.ReadAsAsync<User>();
+                    if (user == null)
+                    {
+                        await GetLoginAsync(new FormRegister(userName, phoneNumber, password, address));
+                    }
+                    else
+                    {
+                        Application.Current.MainPage.DisplayAlert("Alert", "Phone number has been registered", "ok");
+                    }
+                    Console.WriteLine(user);
                 }
-                Console.WriteLine(user);
+                else
+                {
+                    Application.Current.MainPage.DisplayAlert("Alert", "Register Fail", "ok");
+                }
             }
-            else
+            catch
             {
-                Application.Current.MainPage.DisplayAlert("Alert", "Register Fail", "ok");
+                Application.Current.MainPage.DisplayAlert("Alert", "Connect Network Error", "ok");
             }
+           
+            
         }
         void OnPropertyChanged([CallerMemberName] string name = "")
         {

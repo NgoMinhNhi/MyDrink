@@ -81,26 +81,38 @@ namespace MyDrink.ViewModels
             User user = null;
             //Data data = null;
             this.isBusy = true;
-            var client = new HttpClient();
-            HttpResponseMessage response = await client.PostAsJsonAsync("https://mydrink-api.herokuapp.com/api/user/login", login);
-            if (response.IsSuccessStatusCode)
+            try
             {
-                user = await response.Content.ReadAsAsync<User>();
-                db.createDatabase();
-                if (db.InsertStateLogin(SaveLogin(user._id, user.isAdmin)))
+                var client = new HttpClient();
+                HttpResponseMessage response = await client.PostAsJsonAsync("https://mydrink-api.herokuapp.com/api/user/login", login);
+                if (response.IsSuccessStatusCode)
                 {
-                    this.isBusy = false;
-                    Application.Current.MainPage.DisplayAlert("Alert", "Login Success", "ok");
-                    Application.Current.MainPage = new MainShell();
-                } else
-                {
-                    Application.Current.MainPage.DisplayAlert("Alert", "Error", "ok");
+                    user = await response.Content.ReadAsAsync<User>();
+                    db.createDatabase();
+                    if (db.InsertStateLogin(SaveLogin(user._id, user.isAdmin)))
+                    {
+                        this.isBusy = false;
+                        Application.Current.MainPage.DisplayAlert("Alert", "Login Success", "ok");
+                        Application.Current.MainPage = new MainShell();
+                    }
+                    else
+                    {
+                        Application.Current.MainPage.DisplayAlert("Alert", "Error", "ok");
+                    }
+
                 }
-                
-            } else
-            {
-                Application.Current.MainPage.DisplayAlert("Alert", "Login Fail", "ok");
+                else
+                {
+                    Application.Current.MainPage.DisplayAlert("Alert", "Login Fail", "ok");
+                }
             }
+            catch
+            {
+                Application.Current.MainPage.DisplayAlert("Alert", "Connect Network Error", "ok");
+            }
+            
+
+            
             return user;
         }
         string phoneNumber;

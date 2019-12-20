@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using MyDrink.Models;
+using MyDrink.Views;
+
 namespace MyDrink.ViewModels
 {
     public class OrderLogViewModel : INotifyPropertyChanged
@@ -18,6 +20,8 @@ namespace MyDrink.ViewModels
 
         public Command GetListOrderCartCommand { get; }
         public string title { get; set; }
+        public Command<OrderData> DetailOrderCommand { get; }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public OrderLogViewModel()
         {
@@ -31,26 +35,39 @@ namespace MyDrink.ViewModels
                 title = "Management Order";
             }
             GetListOrder();
+            DetailOrderCommand = new Command<OrderData>(async (value) => await DetailOrderClick(value));
         }
-        
+        public async Task DetailOrderClick(OrderData data)
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new DetailOrder(data));
+        }
         async Task GetListOrder()
         {
             string path = "https://mydrink-api.herokuapp.com/api/order/get-all-order";
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync(path);
-            if (response.IsSuccessStatusCode)
+            try
             {
-                ObservableCollection<OrderData> listData;
-                var resp = await response.Content.ReadAsStringAsync();
-
-                listData = JsonConvert.DeserializeObject<ObservableCollection<OrderData>>(resp);
-                for (int i = 0; i < listData.Count; i++)
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = await client.GetAsync(path);
+                if (response.IsSuccessStatusCode)
                 {
-                    this.listOrder.Add(listData[i]);
-                }
+                    ObservableCollection<OrderData> listData;
+                    var resp = await response.Content.ReadAsStringAsync();
+
+                    listData = JsonConvert.DeserializeObject<ObservableCollection<OrderData>>(resp);
+                    for (int i = 0; i < listData.Count; i++)
+                    {
+                        this.listOrder.Add(listData[i]);
+                    }
                     Console.WriteLine(this.listOrder);
-               
+
+                }
             }
+            catch
+            {
+                Application.Current.MainPage.DisplayAlert("Alert", "Connect Network Error", "ok");
+            }
+            
+           
             Console.WriteLine(this.listOrder);
         }
     }

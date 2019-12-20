@@ -13,6 +13,7 @@
         <ToolbarItem Name="iconSetting" Command="{Binding CreateProductCommand}" Icon="done.png" Priority="0" Order="Primary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
+        <StackLayout>
         <ScrollView>
             <StackLayout Margin="20,0,20,0">
                 <Image Source="coffee.png" WidthRequest="120" Margin="0,80,0,0" />
@@ -45,9 +46,21 @@
                     <Label Text="Detail" Grid.Row="5" Grid.Column="0" Style="{StaticResource styleLabel}"/>
                     <Editor Placeholder="Fill detail product" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Detail}" />
                 </Grid>
-                <ActivityIndicator Color="#2161A1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}" />
+                
+                
             </StackLayout>
 
         </ScrollView>
+            <!--<StackLayout HeightRequest="50"
+                         WidthRequest="350"
+                         HorizontalOptions="Center"
+                         Orientation="Horizontal"
+                          Opacity="0.5">-->
+                <ActivityIndicator Opacity="1" Color="#2161A1"
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand"
+                               IsRunning="{Binding IsBusy}" />
+            <!--</StackLayout>-->
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

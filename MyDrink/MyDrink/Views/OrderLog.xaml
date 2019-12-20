@@ -22,17 +22,28 @@
                                     <TapGestureRecognizer Command="{Binding Path=BindingContext.DetailOrderCommand, Source={x:Reference PageName}}"
                                                           CommandParameter="{Binding .}" />
                                 </StackLayout.GestureRecognizers>
-                                <Label HeightRequest="18"
-                                       Text="{Binding phoneNumber, StringFormat='Phone Number : {0}'}"
-                                       FontSize="16"
-                                       TextColor="#828282"
-                                       Margin="6,10,0,0" />
+                                
+                                <FlexLayout JustifyContent="SpaceBetween"
+                                            Margin="0,0,10,5">
+                                    <Label HeightRequest="18"
+                                           Text="{Binding phoneNumber, StringFormat='Phone Number : {0}'}"
+                                           FontSize="16"
+                                           TextColor="#828282"
+                                           Margin="6,10,0,0" />
+                                    <Label Text="{Binding status, StringFormat='Status : {0}'}"
+                                           FontSize="20" />
+                                </FlexLayout>
                                 <Label HeightRequest="18"
                                        Text="{Binding address, StringFormat='Address : {0}'}"
                                        FontSize="16"
                                        TextColor="#828282"
                                        Margin="6,0,0,0" />
-                                <Label HeightRequest="18" Margin="6,0,0,0" FontSize="14" Text="{Binding timeOrder,StringFormat='Time Order : {dd/MM/yyyy - HH:mm}'}" />
+                                <Label HeightRequest="18" Margin="6,0,0,0" FontSize="14" Text="{Binding timeOrder}" />
+                                <BoxView Color="CornflowerBlue"
+                                         WidthRequest="500"
+                                         HeightRequest="2"
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="Center" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

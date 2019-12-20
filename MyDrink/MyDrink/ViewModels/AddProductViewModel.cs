@@ -115,6 +115,7 @@ namespace MyDrink.ViewModels
                 OnPropertyChanged();
             }
         }
+ 
         public int SelectedIndexType
         {
             get { return selectedIndexType; }
@@ -165,7 +166,7 @@ namespace MyDrink.ViewModels
             }
             catch
             {
-
+                Application.Current.MainPage.DisplayAlert("Alert", "Connect Network Error", "ok");
             }
         }
         public class FormData

@@ -77,44 +77,53 @@ namespace MyDrink.ViewModels
             if (store != null)
             {
                 User user = null;
-                HttpClient client = new HttpClient();
-                HttpResponseMessage response = await client.GetAsync("https://mydrink-api.herokuapp.com/api/user/" + store._id);
-                if (response.IsSuccessStatusCode)
+                try
                 {
-                    user = await response.Content.ReadAsAsync<User>();
-                    if (user == null)
+                    HttpClient client = new HttpClient();
+                    HttpResponseMessage response = await client.GetAsync("https://mydrink-api.herokuapp.com/api/user/" + store._id);
+                    if (response.IsSuccessStatusCode)
                     {
-                        Application.Current.MainPage.DisplayAlert("Alert", "Ocur Error", "ok");
-                    }
-                    else
-                    {
-                        List<OrderItem> data = new List<OrderItem>();
-                        for (int i = 0; i < this.listOrders.Count; i ++)
+                        user = await response.Content.ReadAsAsync<User>();
+                        if (user == null)
                         {
-                            data.Add(this.listOrders[i]);
-                        }
-                        OrderForm orderForm = new OrderForm(store._id, user.phoneNumber, user.address, data);
-                        var clientPut = new HttpClient();
-                        HttpResponseMessage responsePut = await client.PostAsJsonAsync("https://mydrink-api.herokuapp.com/api/order/create-order", orderForm);
-                        if (responsePut.IsSuccessStatusCode)
-                        {
-                            DatabaseOrder dbOrder = new DatabaseOrder();
-                            dbOrder.DeleteTableOrder();
-                            this.listOrders = null;
-                            Application.Current.MainPage.DisplayAlert("Alert", "Order Success", "ok");
-                            
+                            Application.Current.MainPage.DisplayAlert("Alert", "Ocur Error", "ok");
                         }
                         else
                         {
-                            Application.Current.MainPage.DisplayAlert("Alert", "Order Fail", "ok");
+                            List<OrderItem> data = new List<OrderItem>();
+                            for (int i = 0; i < this.listOrders.Count; i++)
+                            {
+                                data.Add(this.listOrders[i]);
+                            }
+                            OrderForm orderForm = new OrderForm(store._id, user.phoneNumber, user.address, data);
+                            var clientPut = new HttpClient();
+                            HttpResponseMessage responsePut = await client.PostAsJsonAsync("https://mydrink-api.herokuapp.com/api/order/create-order", orderForm);
+                            if (responsePut.IsSuccessStatusCode)
+                            {
+                                DatabaseOrder dbOrder = new DatabaseOrder();
+                                dbOrder.DeleteTableOrder();
+                                this.listOrders = null;
+                                Application.Current.MainPage.DisplayAlert("Alert", "Order Success", "ok");
+
+                            }
+                            else
+                            {
+                                Application.Current.MainPage.DisplayAlert("Alert", "Order Fail", "ok");
+                            }
                         }
+                        Console.WriteLine(user);
                     }
-                    Console.WriteLine(user);
+                    else
+                    {
+                        Application.Current.MainPage.DisplayAlert("Alert", "Error", "ok");
+                    }
                 }
-                else
+                catch
                 {
-                    Application.Current.MainPage.DisplayAlert("Alert", "Error", "ok");
+                    Application.Current.MainPage.DisplayAlert("Alert", "Connect Network Error", "ok");
                 }
+                
+                
             }
         }
     }
