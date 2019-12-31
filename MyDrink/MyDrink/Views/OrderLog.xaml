@@ -30,10 +30,13 @@
                                            Text="{Binding phoneNumber, StringFormat='Phone Number : {0}'}"
                                            FontSize="16"
                                            TextColor="#828282"
-                                           Margin="6,10,0,0" />
-                                    <Label Text="{Binding status, StringFormat='Status : {0}'}"
-                                           FontSize="20" />
+                                           Margin="6,10,0,0">
+
+                                    </Label>
                                 </FlexLayout>
+                                <Label Margin="10,0,0,0" FontSize="14"
+                                       TextColor="#0084ff"
+                                       Text="{Binding status, StringFormat='Status : {0}'}" />
                                 <Label HeightRequest="18"
                                        Text="{Binding address, StringFormat='Address : {0}'}"
                                        FontSize="16"

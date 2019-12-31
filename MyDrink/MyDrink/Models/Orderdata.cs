@@ -13,6 +13,7 @@ namespace MyDrink.Models
         public string phoneNumber { get; set; }
         public string address { get; set; }
         public ObservableCollection<OrderItem> listItem { get; set; }
+        public string status { get; set; }
         public OrderData()
         {
         }
@@ -24,6 +25,16 @@ namespace MyDrink.Models
             this.phoneNumber = phoneNumber;
             this.address = address;
             this.listItem = listItem;
+        }
+        public OrderData(string _id, DateTime time, string userId, string phoneNumber, string address, ObservableCollection<OrderItem> listItem, string status)
+        {
+            this._id = _id;
+            this.timeOrder = time;
+            this.userId = userId;
+            this.phoneNumber = phoneNumber;
+            this.address = address;
+            this.listItem = listItem;
+            this.status = status;
         }
     }
 }

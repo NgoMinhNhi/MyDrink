@@ -7,27 +7,29 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Image Source="coffee.png" WidthRequest="120" Margin="0,80,0,0" />
-                <Label Margin="20,30,0,0" Text="{Binding detailDrink.name}" FontSize="25" />
+                <ffimageloading:CachedImage Margin="0,70,0,0" Source="{Binding detailDrink.imgSrc}"
+                                            LoadingPlaceholder="loading.png"
+                                            ErrorPlaceholder="ErrorImage"
+                                            CacheDuration="50"
+                                            RetryCount="3"
+                                            RetryDelay="600"
+                                            DownsampleToViewSize="true" />
+                <Label Margin="20,10,0,0" Text="{Binding detailDrink.name}" FontSize="25" />
                 <StackLayout Margin="20,30,0,0">
                     <Label Text="Detail" FontSize="20" />
                     <Label FontSize="17" Text="{Binding detailDrink.detail}" />
                 </StackLayout>
-                <FlexLayout Margin="20,10,20,10" JustifyContent="SpaceBetween">
+                <FlexLayout Margin="20,0,20,10" JustifyContent="SpaceBetween">
                     <Label FontSize="18" Text="Base Price" />
-                    <Label FontSize="18" Text="{Binding detaikDrink.price, StringFormat='${0}'}" />
+                    <Label FontSize="18" Text="{Binding detailDrink.price, StringFormat='${0}'}" />
                 </FlexLayout>
-                <!--<BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#e2e2e2" Margin="30,0,30,0"/>-->
-                <!--<FlexLayout Margin="20,10,20,10" JustifyContent="SpaceBetween">
-                    <Label FontSize="18" Text="Size" />
-                    <Picker ItemsSource="{Binding listSizeDrink}" HorizontalOptions="Center" ItemDisplayBinding="{Binding Value}" SelectedIndex="{Binding SelectedSizeIndex}" WidthRequest="100" />
-                </FlexLayout>-->
+                
                 <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" Color="#e2e2e2" Margin="30,0,30,0"/>
                 <FlexLayout Margin="20,10,20,10" JustifyContent="SpaceBetween">
                     <Label FontSize="18" Text="Quantity" />
                     <Picker ItemsSource="{Binding listQuantityDrink}" HorizontalOptions="Center" ItemDisplayBinding="{Binding Value}" SelectedIndex="{Binding SelectedQuantityIndex}" WidthRequest="100" />
                 </FlexLayout>
-                <StackLayout Margin="20,30,0,0">
+                <StackLayout Margin="20,0,0,0">
                     <Label Text="Note" FontSize="20" />
                     <Entry Text="{Binding detail}" />
                 </StackLayout>

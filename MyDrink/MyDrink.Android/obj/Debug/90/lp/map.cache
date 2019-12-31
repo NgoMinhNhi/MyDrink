@@ -1,11 +1,17 @@
+EngineIoClientDotNet
 FFImageLoading.Forms.Platform
 FFImageLoading.Platform
 FormsViewGroup
+Plugin.CurrentActivity
+Plugin.Media
+Plugin.Permissions
+SocketIoClientDotNet
 SQLitePCLRaw.batteries_green
 SQLitePCLRaw.batteries_v2
 SQLitePCLRaw.core
 SQLitePCLRaw.lib.e_sqlite3
 SQLitePCLRaw.provider.e_sqlite3
+WebSocket4Net
 Xamarin.Android.Arch.Core.Common
 Xamarin.Android.Arch.Core.Runtime
 Xamarin.Android.Arch.Lifecycle.Common

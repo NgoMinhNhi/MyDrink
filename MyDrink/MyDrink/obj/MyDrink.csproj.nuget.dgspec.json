@@ -46,6 +46,10 @@
               "target": "Package",
               "version": "[1.4.0, )"
             },
+            "EngineIoClientDotNet": {
+              "target": "Package",
+              "version": "[0.9.22, )"
+            },
             "Microsoft.AspNet.WebApi.Client": {
               "target": "Package",
               "version": "[5.2.7, )"
@@ -60,9 +64,21 @@
               "target": "Package",
               "version": "[12.0.3, )"
             },
+            "Plugin.Permissions": {
+              "target": "Package",
+              "version": "[3.0.0.12, )"
+            },
             "Refit": {
               "target": "Package",
               "version": "[5.0.23, )"
+            },
+            "SocketIoClientDotNet": {
+              "target": "Package",
+              "version": "[0.9.13, )"
+            },
+            "Xam.Plugin.Media": {
+              "target": "Package",
+              "version": "[4.0.1.5, )"
             },
             "Xamarin.Essentials": {
               "target": "Package",

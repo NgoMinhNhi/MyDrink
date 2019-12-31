@@ -20,6 +20,7 @@ namespace MyDrink.Views
         {
             InitializeComponent();
             CheckDataLogin();
+            
             BindingContext = new MainShellViewModel();
         }
         void CheckDataLogin()

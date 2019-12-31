@@ -1,4 +1,5 @@
-﻿using MyDrink.ViewModels;
+﻿using MyDrink.Models;
+using MyDrink.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,21 @@ namespace MyDrink.Views
         {
             InitializeComponent();
             BindingContext = new AddProductViewModel();
+            Instance = this;
+        }
+
+        public AddProduct(Drink drink)
+        {
+            InitializeComponent();
+            BindingContext = new AddProductViewModel(drink);
+            Instance = this;
+        }
+        public static AddProduct Instance { get; private set; }
+        public void ReloadPage(string src)
+        {
+            //InitializeComponent();
+            ImageSource image = ImageSource.FromUri(new Uri(src));
+            //image.Source = src;
         }
     }
 }

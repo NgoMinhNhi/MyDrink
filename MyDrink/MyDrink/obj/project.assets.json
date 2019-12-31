@@ -15,6 +15,15 @@
           "lib/netstandard1.0/Behaviors.dll": {}
         }
       },
+      "EngineIoClientDotNet/0.9.22": {
+        "type": "package",
+        "compile": {
+          "lib/net45/EngineIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/net45/EngineIoClientDotNet.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.7": {
         "type": "package",
         "dependencies": {
@@ -74,6 +83,15 @@
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
         }
       },
+      "Plugin.Permissions/3.0.0.12": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Plugin.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Permissions.dll": {}
+        }
+      },
       "Refit/5.0.23": {
         "type": "package",
         "dependencies": {
@@ -87,6 +105,15 @@
         },
         "build": {
           "buildTransitive/netstandard2.0/refit.targets": {}
+        }
+      },
+      "SocketIoClientDotNet/0.9.13": {
+        "type": "package",
+        "compile": {
+          "lib/net45/SocketIoClientDotNet.dll": {}
+        },
+        "runtime": {
+          "lib/net45/SocketIoClientDotNet.dll": {}
         }
       },
       "sqlite-net-pcl/1.6.292": {
@@ -136,6 +163,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Numerics.Vectors.dll": {}
+        }
+      },
+      "Xam.Plugin.Media/4.0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Plugin.Permissions": "3.0.0.12"
+        },
+        "compile": {
+          "lib/netstandard2.0/Plugin.Media.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.Media.dll": {}
         }
       },
       "Xamarin.Essentials/1.2.0": {
@@ -205,6 +244,27 @@
         "behaviors.forms.nuspec",
         "lib/netstandard1.0/Behaviors.dll",
         "lib/netstandard1.0/Behaviors.pdb"
+      ]
+    },
+    "EngineIoClientDotNet/0.9.22": {
+      "sha512": "/dMIbPizLAzde4hr8uvHSCshKqq2zEH1lYQa83eHXRMiBGltyUKikvIdZCunDiwPL1EPxa5ngHwqd5NBQyn7eA==",
+      "type": "package",
+      "path": "engineioclientdotnet/0.9.22",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "engineioclientdotnet.0.9.22.nupkg.sha512",
+        "engineioclientdotnet.nuspec",
+        "lib/monoandroid10/EngineIoClientDotNet.dll",
+        "lib/monotouch10/EngineIoClientDotNet.dll",
+        "lib/net35/EngineIoClientDotNet.dll",
+        "lib/net40/EngineIoClientDotNet.dll",
+        "lib/net45/EngineIoClientDotNet.dll",
+        "lib/netcore45/EngineIoClientDotNet.dll",
+        "lib/portable-win81+wpa81/EngineIoClientDotNet.dll",
+        "lib/portable-wpa81+wp81/EngineIoClientDotNet.dll",
+        "lib/windowsphone8/EngineIoClientDotNet.dll",
+        "lib/xamarinios10/EngineIoClientDotNet.dll"
       ]
     },
     "Microsoft.AspNet.WebApi.Client/5.2.7": {
@@ -414,6 +474,29 @@
         "newtonsoft.json.bson.nuspec"
       ]
     },
+    "Plugin.Permissions/3.0.0.12": {
+      "sha512": "VrYqI/ufk3bH6gTP1JJlLByjhS0CHu3riKmdozhX9/qXA9hlvLolmcqKJdyAqpzmrVC74m3ZtirUBIrBxvT1Lw==",
+      "type": "package",
+      "path": "plugin.permissions/3.0.0.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/Plugin.Permissions.dll",
+        "lib/monoandroid71/Plugin.Permissions.xml",
+        "lib/netstandard1.0/Plugin.Permissions.dll",
+        "lib/netstandard1.0/Plugin.Permissions.xml",
+        "lib/netstandard2.0/Plugin.Permissions.dll",
+        "lib/netstandard2.0/Plugin.Permissions.xml",
+        "lib/uap10.0.10240/Plugin.Permissions.dll",
+        "lib/uap10.0.10240/Plugin.Permissions.pri",
+        "lib/uap10.0.10240/Plugin.Permissions.xml",
+        "lib/xamarinios10/Plugin.Permissions.dll",
+        "lib/xamarinios10/Plugin.Permissions.xml",
+        "plugin.permissions.3.0.0.12.nupkg.sha512",
+        "plugin.permissions.nuspec",
+        "readme.txt"
+      ]
+    },
     "Refit/5.0.23": {
       "sha512": "5Hc55wSJck4XfgCBTSnU1autqVk9Qq7aBa3xf829qX8aL6UInUhq0ZN5EzFlcffefUyNOdOJ9R37aK7/BnlOww==",
       "type": "package",
@@ -613,6 +696,27 @@
         "refit.nuspec"
       ]
     },
+    "SocketIoClientDotNet/0.9.13": {
+      "sha512": "0U1gOjIYNLLeEabCinglXOeY7QyVPMmvE6DRtHgwhq2H8zglPUXIpbbG74FmRVZhDA8ryATpArTeHcT/CP6xXA==",
+      "type": "package",
+      "path": "socketioclientdotnet/0.9.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid10/SocketIoClientDotNet.dll",
+        "lib/monotouch10/SocketIoClientDotNet.dll",
+        "lib/net35/SocketIoClientDotNet.dll",
+        "lib/net40/SocketIoClientDotNet.dll",
+        "lib/net45/SocketIoClientDotNet.dll",
+        "lib/netcore45/SocketIoClientDotNet.dll",
+        "lib/portable-win81+wpa81/SocketIoClientDotNet.dll",
+        "lib/portable-wpa81+wp81/SocketIoClientDotNet.dll",
+        "lib/windowsphone8/SocketIoClientDotNet.dll",
+        "lib/xamarinios10/SocketIoClientDotNet.dll",
+        "socketioclientdotnet.0.9.13.nupkg.sha512",
+        "socketioclientdotnet.nuspec"
+      ]
+    },
     "sqlite-net-pcl/1.6.292": {
       "sha512": "TZPs206/ZZXhDAgCzxE5Dmw1enkRmtpd1RKt+dLJA6Kvml4RxwkasRs4js2kijtGxik1SLCs39rh9nl9YFwrYg==",
       "type": "package",
@@ -747,6 +851,31 @@
         "system.numerics.vectors.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Xam.Plugin.Media/4.0.1.5": {
+      "sha512": "a5l/M2Tl06BqBX/uhM/pr+q1jDkh2tRQr5Ne9rjAuD9VYn5STE+7kVFTzIUNPMnMr9PZLJkWP5WAr/tBN5oepw==",
+      "type": "package",
+      "path": "xam.plugin.media/4.0.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/Plugin.Media.dll",
+        "lib/monoandroid71/Plugin.Media.xml",
+        "lib/netstandard1.0/Plugin.Media.dll",
+        "lib/netstandard1.0/Plugin.Media.xml",
+        "lib/netstandard2.0/Plugin.Media.dll",
+        "lib/netstandard2.0/Plugin.Media.xml",
+        "lib/tizen40/Plugin.Media.dll",
+        "lib/tizen40/Plugin.Media.xml",
+        "lib/uap10.0.10240/Plugin.Media.dll",
+        "lib/uap10.0.10240/Plugin.Media.pri",
+        "lib/uap10.0.10240/Plugin.Media.xml",
+        "lib/xamarinios10/Plugin.Media.dll",
+        "lib/xamarinios10/Plugin.Media.xml",
+        "readme.txt",
+        "xam.plugin.media.4.0.1.5.nupkg.sha512",
+        "xam.plugin.media.nuspec"
       ]
     },
     "Xamarin.Essentials/1.2.0": {
@@ -1152,10 +1281,14 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "Behaviors.Forms >= 1.4.0",
+      "EngineIoClientDotNet >= 0.9.22",
       "Microsoft.AspNet.WebApi.Client >= 5.2.7",
       "NETStandard.Library >= 2.0.3",
       "Newtonsoft.Json >= 12.0.3",
+      "Plugin.Permissions >= 3.0.0.12",
       "Refit >= 5.0.23",
+      "SocketIoClientDotNet >= 0.9.13",
+      "Xam.Plugin.Media >= 4.0.1.5",
       "Xamarin.Essentials >= 1.2.0",
       "Xamarin.FFImageLoading.Forms >= 2.4.11.982",
       "Xamarin.Forms >= 4.2.0.709249",
@@ -1208,6 +1341,10 @@
             "target": "Package",
             "version": "[1.4.0, )"
           },
+          "EngineIoClientDotNet": {
+            "target": "Package",
+            "version": "[0.9.22, )"
+          },
           "Microsoft.AspNet.WebApi.Client": {
             "target": "Package",
             "version": "[5.2.7, )"
@@ -1222,9 +1359,21 @@
             "target": "Package",
             "version": "[12.0.3, )"
           },
+          "Plugin.Permissions": {
+            "target": "Package",
+            "version": "[3.0.0.12, )"
+          },
           "Refit": {
             "target": "Package",
             "version": "[5.0.23, )"
+          },
+          "SocketIoClientDotNet": {
+            "target": "Package",
+            "version": "[0.9.13, )"
+          },
+          "Xam.Plugin.Media": {
+            "target": "Package",
+            "version": "[4.0.1.5, )"
           },
           "Xamarin.Essentials": {
             "target": "Package",
@@ -1256,5 +1405,27 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'EngineIoClientDotNet 0.9.22' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "EngineIoClientDotNet",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'SocketIoClientDotNet 0.9.13' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "SocketIoClientDotNet",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
 }

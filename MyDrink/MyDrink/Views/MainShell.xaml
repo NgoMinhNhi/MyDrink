@@ -20,12 +20,12 @@
     </Shell.FlyoutHeaderTemplate>
 
     <FlyoutItem Title="MyTabApp" Shell.TabBarIsVisible="False" FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Home" ContentTemplate="{DataTemplate pages:MainHomePage}"/>
-        <ShellContent Title="All product" ContentTemplate="{DataTemplate pages:HomePage}"/>
+        <ShellContent Title="Dashboard" Icon="list.png" ContentTemplate="{DataTemplate pages:MainHomePage}"/>
+        <ShellContent Title="All product" Icon="brand.png" ContentTemplate="{DataTemplate pages:HomePage}"/>
         <!--<ShellContent Title="Favorites" ContentTemplate="{DataTemplate pages:Favorites}"/>-->
-        <ShellContent Title="{Binding title}" ContentTemplate="{DataTemplate pages:OrderLog}" />
-        <ShellContent Title="Profile" ContentTemplate="{DataTemplate pages:Profiles}"/>
-        <ShellContent Title="Help" ContentTemplate="{DataTemplate pages:Help}"/>
+        <ShellContent Icon="shoppingLog.png" Title="{Binding title}" ContentTemplate="{DataTemplate pages:OrderLog}" />
+        <!--<ShellContent Icon="user.png" Title="Profile" ContentTemplate="{DataTemplate pages:Profiles}"/>
+        <ShellContent Icon="telephone.png" Title="Help" ContentTemplate="{DataTemplate pages:Help}"/>-->
     </FlyoutItem>
-    <MenuItem Text="Logout" IconImageSource="Done.png" Command="{Binding LogoutCommand}" />
+    <MenuItem Text="Logout" IconImageSource="logout.png" Command="{Binding LogoutCommand}" />
 </Shell>

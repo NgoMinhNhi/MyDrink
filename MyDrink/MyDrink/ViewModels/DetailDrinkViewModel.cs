@@ -73,7 +73,7 @@ namespace MyDrink.ViewModels
             db.createDatabase();
             if (db.GetOrderItem(this.detailDrink._id) == null)
             {
-                if (db.InsertOrderItem(new OrderItem(this.detailDrink._id, this.detailDrink.name, this.detailDrink.price, this.detailDrink.price* listQuantityDrink[selectedQuantityIndex].Value, listQuantityDrink[selectedQuantityIndex].Value, detail)))
+                if (db.InsertOrderItem(new OrderItem(this.detailDrink._id, this.detailDrink.name, this.detailDrink.price, this.detailDrink.price* listQuantityDrink[selectedQuantityIndex].Value, listQuantityDrink[selectedQuantityIndex].Value, detail, this.detailDrink.imgSrc)))
                 {
                     this.isBusy = false;
                     Application.Current.MainPage.DisplayAlert("Alert", "Add To Cart Success", "ok");
