@@ -32,42 +32,30 @@ namespace MyDrink.ViewModels
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;
-        public PoolWebsocket dataSource = new PoolWebsocket();
         private string _test;
 
+        public PoolWebsocket catchSocket = new PoolWebsocket();
         public MainHomePageViewModel()
         {
-
-            start();
-
             Noti = null;
-            icon = "notify.png";
             Database db = new Database();
             StateLogin store = db.GetStateLogin();
-            dataSource.DataRecieved += async (s, o) =>
+            catchSocket.DataRecieved += async (s, o) =>
             {
                 if (o != null)
                 {
-        
-                    this.Noti = "You have new order !";
                     this.noti = "You have new order !";
-
                 }
             };
             if (store != null)
             {
-                dataSource.StartLoadingData(store._id);
+                catchSocket.StartLoadingData(store._id);
             }
+            Noti = noti;
             FillByStatusCommand = new Command<string>(async (value) => await FillByStatus(value));
             FillByTypeCommand = new Command<string>(async (value) => await FillByType(value));
             OpenShoppingCartCommand = new Command(async () => await OpenShoppingCart());
-            OrderLogCommand = new Command(async () => await OrderLog());
-            Noti = noti;
-        }
-
-        private async void start()
-        {
-            //await Application.Current.MainPage.DisplayAlert("Alert", "Connect Network Error", "ok");
+            OrderLogCommand = new Command(async () => await OrderLog());  
         }
 
         public string Noti

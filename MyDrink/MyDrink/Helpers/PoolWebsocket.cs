@@ -14,40 +14,27 @@ namespace MyDrink.Helpers
     public class PoolWebsocket
     {
         public event EventHandler<string> DataRecieved;
-        public DatabaseOrder order { get; set; }
         public PoolWebsocket()
         {
-
         }
-        public async void StartLoadingData(string phoneNumber)
+        public async void StartLoadingData(string id)
         {
-            //Auth auth = new Auth() { phoneNumber = phoneNumber, password = "123456" };
-            //var json = JsonConvert.SerializeObject(auth);
-            //var authObject = (object)auth;
-            //Console.WriteLine(auth);
-            //Console.WriteLine(json);
-            //Console.WriteLine(authObject);
             var socket = IO.Socket("https://mydrink-api.herokuapp.com");
             socket.On(Socket.EVENT_CONNECT, () =>
             {
-                socket.Emit("authentication", phoneNumber);
+                socket.Emit("authentication", id);
             });
             socket.On("NEW_ORDER", (data) =>
             {
                 if (data != null)
                 {
-                
-                    Console.WriteLine(data);
-                    
                     DataRecieved?.Invoke(this, data.ToString());
-
                 }
-                Console.WriteLine(data);
             });
            
             socket.On(Socket.EVENT_DISCONNECT, (data) =>
             {
-                Console.WriteLine(data.ToString());
+                Console.WriteLine("DISCONNECT");
             });
 
         }

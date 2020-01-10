@@ -1,2 +1,2 @@
-AdbTarget=-s 192.168.13.101:5555
+AdbTarget=-s 40edf10
 AdbOptions=
