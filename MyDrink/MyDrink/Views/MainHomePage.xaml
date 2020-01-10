@@ -5,98 +5,174 @@
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" BackgroundColor="#f3f3f3" Title="Home" x:Class="MyDrink.Views.MainHomePage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="iconSetting" Icon="shoppingCart.png" Command="{Binding OpenShoppingCartCommand}" Priority="0" Order="Primary"/>
-        <ToolbarItem Name="iconSetting" Icon="notify.png" Priority="0" Order="Primary"/>
-
+        <ToolbarItem Name="iconSetting" Icon="shoppingCart2.png" Command="{Binding OpenShoppingCartCommand}" Priority="0" Order="Primary"/>
+        <ToolbarItem Name="iconSetting"
+                     Icon="{Binding Icon}"
+                     Priority="0"
+                     Order="Primary" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
+        
         <ScrollView>
-            <Grid Margin="10,20,10,10">
+            <StackLayout>
+            
+            <Grid Margin="10,10,10,10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="200"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="200"/>
-                    <RowDefinition Height="200"/>
-                </Grid.RowDefinitions>
-                <Label Grid.Row="0" FontSize="25" TextColor="Blue" Text="Status"/>
-                <StackLayout Grid.Row="1" Grid.Column="0" Margin="0,0,0,20" BackgroundColor="#fff">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="200" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="200" />
+                        <RowDefinition Height="200" />
+                    </Grid.RowDefinitions>
+                    <Label Text="{Binding Noti, Mode=TwoWay}"
+                            Grid.Row="0"
+                            FontSize="20"
+                            Grid.ColumnSpan="3"
+                            BackgroundColor="White"
+                            Margin="10,5,0,0"
+                            TextColor="Red"
+                            HorizontalOptions="Center"  />
+
+
+                    <Label Grid.Row="1" FontSize="25" TextColor="Blue" Text="Status"/>
+                <StackLayout Grid.Row="2" Grid.Column="0" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding FillByStatusCommand}" CommandParameter="New" />
+                        <TapGestureRecognizer Command="{Binding FillByStatusCommand}"
+                                              CommandParameter="New" />
                     </StackLayout.GestureRecognizers>
-                    <Label Text="New" FontSize="18" Margin="5" />
-                    <!--<Image Source="coffee.png" WidthRequest="100" />-->
-                    <ffimageloading:CachedImage Source="https://mydrink-api.herokuapp.com/upload/d88f9bd1-f338-4a90-90ad-5d640a60d5fc.png"
-                                                LoadingPlaceholder="LoaderImage"
+                    <Label Text="New"
+                           FontSize="18"
+                           Margin="5" />
+                    <ffimageloading:CachedImage Source="https://mydrink-api.herokuapp.com/upload/a1b97582-4d5a-4733-911c-0963e39782fd.png"
+                                                LoadingPlaceholder="loading.png"
                                                 ErrorPlaceholder= "ErrorImage"
+                                                CacheDuration="50"
+                                                RetryCount="3"
+                                                Margin="10,0,10,10"
+                                                RetryDelay="600"
+                                                DownsampleToViewSize="true" />
+                </StackLayout>
+                <StackLayout Grid.Row="2" Grid.Column="1" Margin="0,0,0,20" BackgroundColor="#fff">
+                    <StackLayout.GestureRecognizers >
+                        <TapGestureRecognizer Command="{Binding FillByStatusCommand}" CommandParameter="Hot" />
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Hot" FontSize="18" Margin="5" />
+                    <ffimageloading:CachedImage Source="https://mydrink-api.herokuapp.com/upload/16f46eaf-d0b8-4c06-8471-cd2189c55350.png"
+                                                LoadingPlaceholder="loading.png"
+                                                ErrorPlaceholder="ErrorImage"
+                                                CacheDuration="50"
+                                                RetryCount="3"
+                                                Margin="10,0,10,10"
+                                                RetryDelay="600"
+                                                DownsampleToViewSize="true" />
+                </StackLayout>
+                <StackLayout Grid.Row="2" Grid.Column="2" Margin="0,0,0,20" BackgroundColor="#fff">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FillByStatusCommand}" CommandParameter="Percent Off" />
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Percent Off" FontSize="18" Margin="5" />
+                    <ffimageloading:CachedImage Source="https://mydrink-api.herokuapp.com/upload/d670ab0f-7b2a-4ee6-8f95-59e0605e8c72.png"
+                                                LoadingPlaceholder="loading.png"
+                                                ErrorPlaceholder="ErrorImage"
+                                                Margin="10,0,10,10"
                                                 CacheDuration="50"
                                                 RetryCount="3"
                                                 RetryDelay="600"
                                                 DownsampleToViewSize="true" />
                 </StackLayout>
-                <StackLayout Grid.Row="1" Grid.Column="1" Margin="0,0,0,20" BackgroundColor="#fff">
-                    <StackLayout.GestureRecognizers >
-                        <TapGestureRecognizer Command="{Binding FillByStatusCommand}" CommandParameter="Hot" />
-                    </StackLayout.GestureRecognizers>
-                    <Label Text="Hot" FontSize="18" Margin="5" />
-                    <Image Source="coffee.png" WidthRequest="100" />
-                </StackLayout>
-                <StackLayout Grid.Row="1" Grid.Column="2" Margin="0,0,0,20" BackgroundColor="#fff">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding FillByStatusCommand}" CommandParameter="Percent Off" />
-                    </StackLayout.GestureRecognizers>
-                    <Label Text="Percent Off" FontSize="18" Margin="5" />
-                    <Image Source="coffee.png" WidthRequest="100" />
-                </StackLayout>
-                <Label Text="Category" FontSize="25" TextColor="Blue" Grid.Row="2"/>
-                <StackLayout Grid.Row="3" Grid.Column="0" Margin="0,0,0,20" BackgroundColor="#fff">
+                <Label Text="Category" FontSize="25" TextColor="Blue" Grid.Row="3"/>
+                <StackLayout Grid.Row="4" Grid.Column="0" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding FillByTypeCommand}" CommandParameter="Milk Tea" />
                     </StackLayout.GestureRecognizers>
                     <Label Text="Milk Tea" FontSize="18" Margin="5" />
-                    <Image Source="coffee.png" WidthRequest="100" />
+                    <ffimageloading:CachedImage Source="https://mydrink-api.herokuapp.com/upload/ac11529e-a906-48eb-8151-89b241dfb57f.png"
+                                                ErrorPlaceholder="ErrorImage"
+                                                CacheDuration="50"
+                                                LoadingPlaceholder="loading.png"
+                                                RetryCount="3"
+                                                Margin="10,0,10,10"
+                                                RetryDelay="600"
+                                                DownsampleToViewSize="true" />
                 </StackLayout>
-                <StackLayout Grid.Row="3" Grid.Column="1" Margin="0,0,0,20" BackgroundColor="#fff">
+                <StackLayout Grid.Row="4" Grid.Column="1" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding FillByTypeCommand}" CommandParameter="Coffee" />
                     </StackLayout.GestureRecognizers>
                     <Label Text="Coffee" FontSize="18" Margin="5" />
-                    <Image Source="coffee.png" WidthRequest="100" />
+                    <ffimageloading:CachedImage Source="https://mydrink-api.herokuapp.com/upload/c6c6b81f-4934-4466-bf2a-20bee1bd9427.png"
+                                                LoadingPlaceholder="loading.png"
+                                                ErrorPlaceholder="ErrorImage"
+                                                Margin="10,0,10,10"
+                                                CacheDuration="50"
+                                                RetryCount="3"
+                                                RetryDelay="600"
+                                                DownsampleToViewSize="true" />
                 </StackLayout>
-                <StackLayout Grid.Row="3" Grid.Column="2" Margin="0,0,0,20" BackgroundColor="#fff">
+                <StackLayout Grid.Row="4" Grid.Column="2" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding FillByTypeCommand}" CommandParameter="Juice" />
                     </StackLayout.GestureRecognizers>
                     <Label Text="Juice" FontSize="18" Margin="5" />
-                    <Image Source="coffee.png" WidthRequest="100" />
+                    <ffimageloading:CachedImage Source="https://mydrink-api.herokuapp.com/upload/e410e3b9-39ca-4666-aedc-016eba319d09.png"
+                                                LoadingPlaceholder="loading.png"
+                                                ErrorPlaceholder="ErrorImage"
+                                                CacheDuration="50"
+                                                Margin="10,0,10,10"
+                                                RetryCount="3"
+                                                RetryDelay="600"
+                                                DownsampleToViewSize="true" />
                 </StackLayout>
-                <StackLayout Grid.Row="4" Grid.Column="0" Margin="0,0,0,20" BackgroundColor="#fff">
+                <StackLayout Grid.Row="5" Grid.Column="0" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding FillByTypeCommand}" CommandParameter="Ice blended" />
                     </StackLayout.GestureRecognizers>
                     <Label Text="Ice blended" FontSize="18" Margin="5" />
-                    <Image Source="coffee.png" WidthRequest="100" />
+                    <ffimageloading:CachedImage Source="https://mydrink-api.herokuapp.com/upload/3aa7aa68-48da-428f-8164-ac9f20755b5f.png"
+                                                LoadingPlaceholder="loading.png"
+                                                Margin="10,0,10,10"
+                                                ErrorPlaceholder="ErrorImage"
+                                                CacheDuration="50"
+                                                RetryCount="3"
+                                                RetryDelay="600"
+                                                DownsampleToViewSize="true" />
                 </StackLayout>
-                <StackLayout Grid.Row="4" Grid.Column="1" Margin="0,0,0,20" BackgroundColor="#fff">
+                <StackLayout Grid.Row="5" Grid.Column="1" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding FillByTypeCommand}" CommandParameter="Hot Drink" />
                     </StackLayout.GestureRecognizers>
                     <Label Text="Hot Drink" FontSize="18" Margin="5" />
-                    <Image Source="coffee.png" WidthRequest="100" />
+                    <ffimageloading:CachedImage Source="https://mydrink-api.herokuapp.com/upload/37961882-4637-49c1-895c-47d735d4d558.png"
+                                                LoadingPlaceholder="loading.png"
+                                                Margin="10,0,10,10"
+                                                ErrorPlaceholder="ErrorImage"
+                                                CacheDuration="50"
+                                                RetryCount="3"
+                                                RetryDelay="600"
+                                                DownsampleToViewSize="true" />
                 </StackLayout>
-                <StackLayout Grid.Row="4" Grid.Column="2" Margin="0,0,0,20" BackgroundColor="#fff">
+                <StackLayout Grid.Row="5" Grid.Column="2" Margin="0,0,0,20" BackgroundColor="#fff">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding FillByTypeCommand}" CommandParameter="Cocktail" />
                     </StackLayout.GestureRecognizers>
                     <Label Text="Cocktail" FontSize="18" Margin="5" />
-                    <Image Source="coffee.png" WidthRequest="100" />
+                    <ffimageloading:CachedImage Source="https://mydrink-api.herokuapp.com/upload/f96a017d-961f-4872-b576-d2c2175476a6.png"
+                                                LoadingPlaceholder="loading.png"
+                                                Margin="10,0,10,10"
+                                                ErrorPlaceholder="ErrorImage"
+                                                CacheDuration="50"
+                                                RetryCount="3"
+                                                RetryDelay="600"
+                                                DownsampleToViewSize="true" />
                 </StackLayout>
             </Grid>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

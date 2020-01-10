@@ -15,6 +15,10 @@ namespace MyDrink.Models
         public string email { get; set; }
         public int isAdmin { get; set; }
         public string status { get; set; }
+        public User()
+        {
+
+        }
         //public bool success { get; set; }
     }
 }

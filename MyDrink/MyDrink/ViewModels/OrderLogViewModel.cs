@@ -43,7 +43,19 @@ namespace MyDrink.ViewModels
         }
         async Task GetListOrder()
         {
-            string path = "https://mydrink-api.herokuapp.com/api/order/get-all-order";
+            Database db = new Database();
+            StateLogin store = db.GetStateLogin();
+            string path;
+            if (store.isAdmin == 1)
+            {
+                path = "https://mydrink-api.herokuapp.com/api/order/get-all-order";
+            }
+            else
+            {
+                path = "https://mydrink-api.herokuapp.com/api/order/get-by-user/"+store._id;
+            }
+          
+            
             try
             {
                 HttpClient client = new HttpClient();

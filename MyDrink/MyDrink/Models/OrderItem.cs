@@ -16,11 +16,12 @@ namespace MyDrink.Models
         public int drinkQuantity { get; set; }
         public int quantity { get; set; }
         public string detail { get; set; }
+        public string imgSrc { get; set; }
         public OrderItem()
         {
 
         }
-        public OrderItem ( string dId, string dName, float price, float dPrice, int q, string dt)
+        public OrderItem ( string dId, string dName, float price, float dPrice, int q, string dt, string src)
         {
             this.drinkId = dId;
             this.drinkName = dName;
@@ -28,6 +29,7 @@ namespace MyDrink.Models
             this.totalPrice = dPrice;
             this.quantity = q;
             this.detail = dt;
+            this.imgSrc = src;
         }
     }
 }

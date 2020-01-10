@@ -92,7 +92,7 @@ namespace MyDrink.ViewModels
                     if (db.InsertStateLogin(SaveLogin(user._id, user.isAdmin)))
                     {
                         this.isBusy = false;
-                        Application.Current.MainPage.DisplayAlert("Alert", "Login Success", "ok");
+                        //Application.Current.MainPage.DisplayAlert("Alert", "Login Success", "ok");
                         Application.Current.MainPage = new MainShell();
                     }
                     else
@@ -103,7 +103,7 @@ namespace MyDrink.ViewModels
                 }
                 else
                 {
-                    Application.Current.MainPage.DisplayAlert("Alert", "Login Fail", "ok");
+                    Application.Current.MainPage.DisplayAlert("Alert", "Password incorrect !", "ok");
                 }
             }
             catch

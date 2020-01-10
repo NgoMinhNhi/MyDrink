@@ -28,14 +28,18 @@ namespace MyDrink.ViewModels
               
             }
         }
+        public PoolWebsocket dataSource = new PoolWebsocket();
         public Drink _selectedDrinnk { get; set; }
         public Command DetailDrinkCommand { get; }
         public Command CreateProductCommand { get; }
         public Command OpenShoppingCartCommand { get; }
+        public Command ToOrderCommand { get; }
+        public string icon { get; set; }
         public string titlePage { get; set; }
         public int marginTop { get; set; }
         public HomePageViewModel()
         {
+            icon = "notify.png";
             this.marginTop = 0;
             this.titlePage = "All Product";
             this.isBusy = true;
@@ -43,14 +47,43 @@ namespace MyDrink.ViewModels
             DetailDrinkCommand = new Command<Drink>(async (drink) => await OpenDetailDrink(drink));
             CreateProductCommand = new Command(async () => await CreateProduct());
             OpenShoppingCartCommand = new Command(async () => await OpenShoppingCart());
-            
+            ToOrderCommand = new Command(async () => await ToOrder());
+            Database db = new Database();
+            StateLogin store = db.GetStateLogin();
+            dataSource.DataRecieved += async (s, o) =>
+            {
+                if (o != null)
+                {
+                    Console.WriteLine(o);
+                    this.Icon = "notification.png";
+                    await Application.Current.MainPage.DisplayAlert("Alert", "Connect Network Error", "ok");
+                    OnPropertyChanged();
+
+                }
+            };
+            if (store != null)
+            {
+                dataSource.StartLoadingData(store._id);
+            }
+
+
         }
+        public string Icon
+        {
+            get { return icon; }
+            set { icon = value;
+                OnPropertyChanged();
+            }
+        }
+       
+
         public Thickness Margin
         {
             get { return new Thickness(0, this.marginTop,0, 0); }
         }
         public HomePageViewModel(string fill, string value)
         {
+            icon = "notify.png";
             Database db = new Database();
             StateLogin store = db.GetStateLogin();
             if (store.isAdmin == 1)
@@ -60,12 +93,33 @@ namespace MyDrink.ViewModels
             {
                 this.marginTop = 60;
             }
-            
+
+            dataSource.DataRecieved += async (s, o) =>
+            {
+                if (o != null)
+                {
+                    Console.WriteLine(o);
+                    this.Icon = "notification.png";
+                    OnPropertyChanged();
+                }
+            };
+            if (store != null)
+            {
+                dataSource.StartLoadingData(store._id);
+            }
             this.titlePage =value;
             this.isBusy = true;
             GetDrinkFilter("https://mydrink-api.herokuapp.com/api/drink/get-product-by-" + fill + "/" + value);
             
-            DetailDrinkCommand = new Command<Drink>(async (drink) => await OpenDetailDrink(drink));
+            DetailDrinkCommand = new Command<Drink>(async (drink) => {
+                if (store.isAdmin == 1)
+                {
+                    await EditProduct(drink);
+                } else
+                {
+                    await OpenDetailDrink(drink);
+                }
+                });
             CreateProductCommand = new Command(async () => await CreateProduct());
             OpenShoppingCartCommand = new Command(async () => await OpenShoppingCart());
         }
@@ -199,9 +253,17 @@ namespace MyDrink.ViewModels
         {
             await Application.Current.MainPage.Navigation.PushAsync(new AddProduct());
         }
+        public async Task EditProduct(Drink drink)
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new AddProduct(drink));
+        }
         public async Task OpenShoppingCart()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ShoppingCart());
+        }
+        public async Task ToOrder()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new OrderLog());
         }
         public event PropertyChangedEventHandler PropertyChanged;
 

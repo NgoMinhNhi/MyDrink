@@ -17,11 +17,29 @@
         <StackLayout>
         <ScrollView>
             <StackLayout Margin="20,0,20,0">
-                <Image Source="coffee.png" WidthRequest="120" Margin="0,80,0,0" />
-                <StackLayout Margin="100,15,100,0">
-                    <Button Text="Add Image" BackgroundColor="#0d9f67" />
-                </StackLayout>
-                <Grid>
+                    <StackLayout Margin="0,80,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+                    
+                        <ffimageloading:CachedImage Source="{Binding ImgSrc}"
+                                                    LoadingPlaceholder="loading.png"
+                                                    ErrorPlaceholder="ErrorImage"
+                                                    CacheDuration="50"
+                                                    RetryCount="3"
+                                                    RetryDelay="600"
+                                                    DownsampleToViewSize="true" />
+                        <!--<Image x:Name="image" />-->
+                    </StackLayout>
+                    
+                    <StackLayout Margin="100,10,100,0">
+                    <!--<Button Text="Add Image" BackgroundColor="#0d9f67" />-->
+                        <Label Text="Add a image"
+                               HorizontalOptions="Center" />
+                        
+                    </StackLayout>
+                    <FlexLayout JustifyContent="Center">
+                        <Button Text="Take Photo" Command="{Binding TakePhotoCommand}"/>
+                        <Button Text="Pick Photo" Command="{Binding PickPhotoCommand}" />
+                    </FlexLayout>
+                    <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="50"/>
@@ -57,10 +75,10 @@
                          HorizontalOptions="Center"
                          Orientation="Horizontal"
                           Opacity="0.5">-->
-                <ActivityIndicator Opacity="1" Color="#2161A1"
+                <!--<ActivityIndicator Opacity="1" Color="#2161A1"
                                    HorizontalOptions="CenterAndExpand"
                                    VerticalOptions="CenterAndExpand"
-                               IsRunning="{Binding IsBusy}" />
+                               IsRunning="{Binding IsBusy}" />-->
             <!--</StackLayout>-->
         </StackLayout>
     </ContentPage.Content>

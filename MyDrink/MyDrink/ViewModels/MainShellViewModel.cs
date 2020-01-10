@@ -18,22 +18,42 @@ namespace MyDrink.ViewModels
         public string title { get; set; }
         public Command LogoutCommand { get; }
         public Command CheckInfoCommand { get; }
+        //public PoolWebsocket dataSource = new PoolWebsocket();
 
         public MainShellViewModel ()
         {
             Database db = new Database();
             StateLogin store = db.GetStateLogin();
-            if (store.isAdmin == 0)
+            //dataSource.DataRecieved += async (s, o) =>
+            //{
+            //    if (o != null)
+            //    {
+            //        Console.WriteLine(o);
+
+
+            //    }
+            //};
+            if (store != null)
             {
-                this.title = "Order Log";
+                //dataSource.StartLoadingData(store._id);
+                if (store.isAdmin == 0)
+                {
+                    this.title = "Order Log";
+                }
+                else
+                {
+                    this.title = "Management Order";
+                }
             }
-            else
-            {
-                this.title = "Management Order";
-            }
+
             LogoutCommand = new Command(async () => await Logout());
             CheckInfoCommand = new Command(async () => await CheckInfo());
         }
+        //async Task AlertNewOrder()
+        //{
+        //    Console.WriteLine("aaaaaaaaaaaaaaa");
+        //    Application.Current.MainPage.DisplayAlert("Question?", "You have new order", "Yes");
+        //}
         async Task Logout()
         {
             try

@@ -1,5 +1,6 @@
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\MyDrink.Android.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\Behaviors.dll
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\EngineIoClientDotNet.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\FFImageLoading.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\FFImageLoading.Forms.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\FFImageLoading.Forms.Platform.dll
@@ -11,7 +12,11 @@ C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\an
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\MyDrink.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\Newtonsoft.Json.Bson.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\Newtonsoft.Json.dll
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\Plugin.CurrentActivity.dll
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\Plugin.Media.dll
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\Plugin.Permissions.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\Refit.dll
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\SocketIoClientDotNet.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\SQLite-net.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\SQLitePCLRaw.batteries_green.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\SQLitePCLRaw.batteries_v2.dll
@@ -28,6 +33,7 @@ C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\an
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\System.Runtime.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\System.Xml.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\System.Xml.Linq.dll
+C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\WebSocket4Net.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\Xamarin.Android.Arch.Core.Common.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\Xamarin.Android.Arch.Core.Runtime.dll
 C:\Users\NgoMinhNhi\source\repos\MyDrink\MyDrink\MyDrink.Android\obj\Debug\90\android\assets\Xamarin.Android.Arch.Lifecycle.Common.dll

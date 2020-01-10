@@ -7,10 +7,14 @@
 
   <ItemGroup>
     <PackageReference Include="Behaviors.Forms" Version="1.4.0" />
+    <PackageReference Include="EngineIoClientDotNet" Version="0.9.22" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
     <PackageReference Include="Refit" Version="5.0.23" />
+    <PackageReference Include="SocketIoClientDotNet" Version="0.9.13" />
     <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />

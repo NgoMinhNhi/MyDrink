@@ -21,7 +21,12 @@
                 <Label Text="Phone Number : "
                        FontSize="16" />
                 <Label Text="{Binding order.phoneNumber}"
-                       FontSize="16" />
+                       FontSize="16" TextDecorations="Underline" TextColor="Blue">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CommandCall}"
+                                              CommandParameter="{Binding order.phoneNumber}" />
+                    </Label.GestureRecognizers>
+                </Label>
             </FlexLayout>
             <FlexLayout JustifyContent="Start"
                         Margin="10,0,10,5">
@@ -37,6 +42,12 @@
                 <Label Text="{Binding order.timeOrder}"
                        FontSize="16" />
             </FlexLayout>
+            <StackLayout IsVisible="{Binding showSwitch}">
+                <Label Text="Status" />
+                <Picker ItemsSource="{Binding ListStatus}"
+                        SelectedIndex="{Binding SelectedItem}"
+                        ItemDisplayBinding="{Binding Value}" />
+            </StackLayout>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5*" />
@@ -55,6 +66,7 @@
                        Grid.Row="0"
                        Grid.Column="1" />
             </Grid>
+            
             <BoxView Color="CornflowerBlue"
                      WidthRequest="500"
                      HeightRequest="2"
@@ -77,11 +89,13 @@
                                         <ColumnDefinition Width="3*" />
                                         <ColumnDefinition Width="1*" />
                                     </Grid.ColumnDefinitions>
-                                    <Image  VerticalOptions="Center"
-                                            Grid.Column="0"
-                                            Source="coffee.png"
-                                            WidthRequest="40"
-                                            Margin="0,15,0,15" />
+                                    <ffimageloading:CachedImage Source="{Binding imgSrc}"
+                                                                LoadingPlaceholder="loading.png"
+                                                                ErrorPlaceholder="ErrorImage"
+                                                                CacheDuration="50"
+                                                                RetryCount="3"
+                                                                RetryDelay="600"
+                                                                DownsampleToViewSize="true" />
                                     <Label  VerticalOptions="Center"
                                             Text="{Binding drinkName}"
                                             Grid.Column="1" />
